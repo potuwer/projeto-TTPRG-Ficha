@@ -4,3 +4,11 @@
   box-sizing: 0;
   border: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
