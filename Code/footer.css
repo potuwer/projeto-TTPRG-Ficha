@@ -12,7 +12,7 @@ footer {
 }
 
 footer ul li,
-p {
+footer p {
   padding-inline: 15px;
   padding-block: 8px;
   border: 1px solid black;
