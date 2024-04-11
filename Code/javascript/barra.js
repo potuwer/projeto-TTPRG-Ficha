@@ -1,12 +1,14 @@
+//Cria um pop-up que pede o valor total da barra e o altera (futuramente imlementa mais utilidades pra barra)
+
 const componentesBarra = document.querySelectorAll(".componente-barra");
 const configsBarra = document.querySelectorAll(".barra button");
 
 configsBarra.forEach((botao) =>
   botao.addEventListener("click", (e) => {
     const barra = botao.parentNode;
-
-    //Criar um pop up dentro da barra que pede um numero nukm input, e ao clicar em ok ele atribui o valor maximo e valor temporario da barra para isso
-  })
+    
+    const popUp =  
+})
 );
 
 //Botões que alteram no valor temporario
@@ -25,9 +27,10 @@ componentesBarra.forEach((cBarra) => {
       const valorAtribuido = parseInt(botao.innerHTML);
       const valorTemporario = parseInt(spanTemporario.innerHTML);
 
-      spanTemporario.innerHTML = valorAtribuido + valorTemporario;
+      const novoValor = valorAtribuido + valorTemporario;
+      spanTemporario.innerHTML = novoValor;
 
-      atualizarCheia(barra);
+      atualizarCheia(barra, novoValor);
     });
   });
 });
@@ -36,5 +39,16 @@ componentesBarra.forEach((cBarra) => {
 
 function atualizarCheia(barra, valor) {
   const valorTotal = parseInt(barra.lastChild.innerHTML);
-  console.log(valorTotal);
+
+  let decimal = valor / valorTotal;
+  decimal *= 100;
+
+  if (decimal < 0) {
+    barra.style.width = "0%";
+  }
+  if (decimal > 100) {
+    barra.style.width = "100%";
+  } else {
+    barra.style.width = `${decimal}%`;
+  }
 }

@@ -301,6 +301,7 @@ body::-webkit-scrollbar {
 .container-atributos p {
   grid-column: span 1;
   grid-row: span 1;
+
   border: 0.2vw solid #091c4e;
   box-sizing: border-box;
   text-align: left;
@@ -349,10 +350,6 @@ body::-webkit-scrollbar {
     background-color: #695341;
     border-radius: 0.75vw;
   }
-}
-
-.container-descricao p[contenteditable="true"]:focus {
-  outline: none;
 }
 
 .container-descricao p::-webkit-scrollbar {
