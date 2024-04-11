@@ -12,3 +12,7 @@ a {
 a:visited {
   color: inherit;
 }
+
+html {
+  scroll-behavior: smooth;
+}

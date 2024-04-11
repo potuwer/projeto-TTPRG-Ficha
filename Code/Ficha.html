@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="nav-bar.css" />
     <link rel="stylesheet" href="footer.css" />
 
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    <script type="module" src="./javascript/foto-de-perfil.js" defer></script>
 
     <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,11 +76,12 @@
     <section class="ficha">
       <section class="principais">
         <div class="container-foto-de-perfil">
-          <img
-            class="foto-de-perfil"
-            src="/esboço/teste-portrait.png"
-            alt="Foto de foto-de-perfil"
-          />
+          <img src="/Code/assets/Icons/icon-upload-profile.jpg" />
+
+          <label class="foto-de-perfil">
+            <input type="file" accept="image/*" />
+          </label>
+
           <div class="borda-foto-de-perfil"></div>
         </div>
 
