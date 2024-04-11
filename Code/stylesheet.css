@@ -194,7 +194,7 @@ body::-webkit-scrollbar {
   justify-content: space-between;
 }
 
-.componente-barra button {
+.componente-barra > button {
   cursor: pointer;
   display: inline-block;
   width: 10%;
@@ -232,23 +232,22 @@ body::-webkit-scrollbar {
   border: 1px solid rgba(0, 0, 0, 0.7);
   background-image: url(/Code/assets/Icons/icon-3points.png);
   background-size: contain;
-  border-radius: 0px;
-  width: 15px;
-  height: 15px;
+  height: 45%;
+  aspect-ratio: 1/1;
   z-index: 2;
   align-self: flex-start;
   justify-self: right;
+  cursor: pointer;
 }
 
 .cheia {
   position: absolute;
   height: 100%;
-  width: 80%;
+  width: 100%;
   background-size: cover;
   display: flex;
   align-items: center;
   z-index: 1;
-  text-indent: 0.75vw;
 
   font-family: "Inria Serif";
   font-size: 2.3vw;
@@ -265,6 +264,10 @@ body::-webkit-scrollbar {
   color: #520000;
 }
 
+.c-red span:first-child {
+  text-indent: 0.75vw;
+}
+
 .blue {
   background-image: url(/Code/assets/Barras/Barra-BLUE.png);
   border: 0.35vw solid #00065d;
@@ -273,6 +276,10 @@ body::-webkit-scrollbar {
 .c-blue {
   color: #000552;
   background-image: url(/Code/assets/Barras/Cheia-BLUE.png);
+}
+
+.c-blue span:first-child {
+  text-indent: 0.75vw;
 }
 
 /*                                           ATRIBUTOS */
