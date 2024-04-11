@@ -223,11 +223,11 @@ body::-webkit-scrollbar {
   position: relative;
 }
 
-.barra button {
+.barra > button {
   display: none;
 }
 
-.barra:hover button {
+.barra:hover > button {
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.7);
   background-image: url(/Code/assets/Icons/icon-3points.png);
