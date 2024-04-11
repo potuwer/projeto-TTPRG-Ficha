@@ -380,6 +380,19 @@ body::-webkit-scrollbar {
   grid-row: span 4;
   justify-self: end;
   position: relative;
+  display: flex;
+}
+
+.container-foto-corpo input {
+  display: none;
+}
+
+.container-foto-corpo label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .container-foto-corpo img {

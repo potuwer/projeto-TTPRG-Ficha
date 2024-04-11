@@ -1,23 +1,28 @@
-const inputImagem = document.querySelector(".foto-de-perfil input");
+// Elementos da foto-de-perfil
+const inputFotoPerfil = document.querySelector(".foto-de-perfil input");
 const fotoDePerfil = document.querySelector(".container-foto-de-perfil img");
+//elementos da foto-do-dorpo
+const inputFotoCorpo = document.querySelector(".container-foto-corpo input");
+const fotoDoCorpo = document.querySelector(".container-foto-corpo img");
 
-inputImagem.addEventListener("change", (e) => {
-  const inputTarget = e.target;
-  const arquivo = inputTarget.files[0];
+porImagemNaTela(inputFotoPerfil, fotoDePerfil);
+porImagemNaTela(inputFotoCorpo, fotoDoCorpo);
 
-  if (arquivo) {
-    const reader = new FileReader();
+function porImagemNaTela(input, img) {
+  input.addEventListener("change", (e) => {
+    const arquivo = e.target.files[0];
 
-    reader.addEventListener("load", function (e) {
-      const readerTarget = e.target;
+    if (arquivo) {
+      const reader = new FileReader();
 
-      const imgResult = readerTarget.result;
+      reader.addEventListener("load", (e) => {
+        const readerTarget = e.target;
 
-      fotoDePerfil.src = imgResult;
-    });
-    reader.readAsDataURL(arquivo);
-  }
-});
+        const imgResult = readerTarget.result;
 
-//transformar em função essa recebimento de imagem e aplicala pra imagem do corpo tb,
-// uma funcao q recebe um input e um <img> e faz tudo isso
+        img.src = imgResult;
+      });
+      reader.readAsDataURL(arquivo);
+    }
+  });
+}
