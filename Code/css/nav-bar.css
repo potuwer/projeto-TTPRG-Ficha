@@ -14,13 +14,12 @@ nav {
 .logo {
   text-decoration: none;
   margin-left: 2vw;
-
   background: linear-gradient(150deg, white 0%, white 40%, #1e1304 100%);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-stroke-width: 0.2vw;
   -webkit-text-stroke-color: #000;
-
   font-size: 3vw;
   font-weight: 900;
 }
@@ -36,17 +35,16 @@ nav {
   outline: none;
   margin-right: 2vw;
   margin-left: 2vw;
-
   background: linear-gradient(150deg, white 0%, white 40%, #1e1304 100%);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-stroke-width: 0.2vw;
   -webkit-text-stroke-color: #000;
-
   font-size: 3vw;
   font-weight: 900;
 }
 
 .links li:last-child {
   margin-right: 2.5vw;
-}
+} /*# sourceMappingURL=nav-bar.css.map */
