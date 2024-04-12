@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
 /*                                           FUNDO DA FICHA */
 
 .ficha {
-  background-image: url(/Code/assets/Pagina-Fundo.jpg);
+  background-image: url(../assets/Pagina-Fundo.jpg);
   background-size: cover;
   box-shadow: 0px 0px 2vw 2.3vw rgba(0, 0, 0, 0.5) inset;
   padding: 3.7vw;
@@ -207,7 +207,7 @@ body::-webkit-scrollbar {
 
   border-radius: 0.69vw;
   border: 0.35vw solid #9c6332;
-  background: url(/Code/assets/Button\(Barras\)-Fundo.png);
+  background: url(../assets/Button\(Barras\)-Fundo.png);
   background-size: cover;
 
   color: #633814;
@@ -234,7 +234,7 @@ body::-webkit-scrollbar {
 .barra:hover > button {
   display: block;
   border: 0.075vw solid rgba(0, 0, 0, 0.7);
-  background-image: url(/Code/assets/Icons/icon-3points.png);
+  background-image: url(../assets/Icons/icon-3points.png);
   background-size: contain;
   height: 45%;
   aspect-ratio: 1/1;
@@ -260,12 +260,12 @@ body::-webkit-scrollbar {
 }
 
 .red {
-  background-image: url(/Code/assets/Barras/Barra-RED.png);
+  background-image: url(../assets/Barras/Barra-RED.png);
   border: 0.35vw solid #5f0000;
 }
 
 .c-red {
-  background-image: url(/Code/assets/Barras/Cheia-RED.png);
+  background-image: url(../assets/Barras/Cheia-RED.png);
   color: #520000;
 }
 
@@ -274,13 +274,13 @@ body::-webkit-scrollbar {
 }
 
 .blue {
-  background-image: url(/Code/assets/Barras/Barra-BLUE.png);
+  background-image: url(../assets/Barras/Barra-BLUE.png);
   border: 0.35vw solid #00065d;
 }
 
 .c-blue {
   color: #000552;
-  background-image: url(/Code/assets/Barras/Cheia-BLUE.png);
+  background-image: url(../assets/Barras/Cheia-BLUE.png);
 }
 
 .c-blue span:first-child {
@@ -295,7 +295,7 @@ body::-webkit-scrollbar {
   grid-column-end: 2;
   align-self: center;
   height: 10.85vw;
-  background-image: url(/Code/assets/Atributos-fundo.png);
+  background-image: url(../assets/Atributos-fundo.png);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -326,7 +326,7 @@ body::-webkit-scrollbar {
   width: 52vw;
   height: 15.6vw;
   justify-self: end;
-  background-image: url(/Code/assets/Descricao-fundo.png);
+  background-image: url(../assets/Descricao-fundo.png);
   padding: 1.5vw 1vw 0.4vw 1vw;
   background-size: cover;
   border: 0.38vw solid #695341;
@@ -403,7 +403,7 @@ body::-webkit-scrollbar {
   height: 100%;
   aspect-ratio: 7/12;
   border: 0.6vw solid transparent;
-  border-image: url(/Code/assets/FotoCorpo-borda.png);
+  border-image: url(../assets/FotoCorpo-borda.png);
   border-image-slice: 11 14 11 14;
   border-image-width: 0.6vw 0.6vw 0.6vw 0.6vw;
   border-image-repeat: stretch stretch;
@@ -418,7 +418,7 @@ body::-webkit-scrollbar {
   flex-direction: row;
   border-radius: 0 0 1.14vw 1.14vw;
   border: 0.25vw solid #7e6a4a;
-  background-image: url(/Code/assets/FotoCorpo-pesoaltura-fundo.png);
+  background-image: url(../assets/FotoCorpo-pesoaltura-fundo.png);
   justify-content: center;
   text-align: center;
   font-family: "Garamond";
@@ -437,7 +437,7 @@ body::-webkit-scrollbar {
   align-self: end;
   aspect-ratio: 76/15;
   border: 0.5vw solid #f00;
-  background-image: url(/Code/assets/Pericias-fundo.png);
+  background-image: url(../assets/Pericias-fundo.png);
   background-size: cover;
   box-sizing: border-box;
 
@@ -497,7 +497,7 @@ body::-webkit-scrollbar {
   max-height: 330px;
   margin-top: 50px;
   padding: 20px 10px 20px 10px;
-  background-image: url(/Code/assets/HabilidadesContainer-fundo.png);
+  background-image: url(../assets/HabilidadesContainer-fundo.png);
   background-size: cover;
   border-radius: 1.14vw;
   box-shadow: 0px 0px 11.6vw 6px rgba(0, 0, 0, 0.4) inset,
@@ -522,7 +522,7 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
   padding: 4px 6px 4px 6px;
   display: flex;
-  background-image: url(/Code/assets/Habilidade-fundo.png);
+  background-image: url(../assets/Habilidade-fundo.png);
   background-size: cover;
 }
 
@@ -609,7 +609,7 @@ body::-webkit-scrollbar {
 .capacidade {
   width: 33%;
   height: 44px;
-  background-image: url(/Code/assets/InventarioCapacidade-fundo.png);
+  background-image: url(../assets/InventarioCapacidade-fundo.png);
   background-size: cover;
   text-align: center;
   box-sizing: border-box;
@@ -653,7 +653,7 @@ body::-webkit-scrollbar {
 .armadura-topo {
   width: 100%;
   height: 44px;
-  background-image: url(/Code/assets/ArmaduraTopo-Fundo.png);
+  background-image: url(../assets/ArmaduraTopo-Fundo.png);
   background-size: cover;
   text-align: center;
   box-sizing: border-box;

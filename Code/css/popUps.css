@@ -1,12 +1,13 @@
 /* X */
 .X {
-  background-image: url(/Code/assets/Icons/X.png);
+  background-image: url(../assets/Icons/X.png);
   background-size: contain;
   height: 20px;
   aspect-ratio: 1/1;
   position: absolute;
   top: 0px;
   right: 0px;
+  border: 0.075vw solid rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
 
