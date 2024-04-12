@@ -46,7 +46,13 @@ configsBarra.forEach((botao) =>
           const spans = barra.querySelectorAll("span");
           const inputValor = divPopUp.querySelector("input").value;
 
-          if (inputValor == 0 || inputValor == null) return deletar(divPopUp);
+          if (
+            inputValor == 0 ||
+            inputValor == null ||
+            inputValor.includes(",") ||
+            inputValor.includes(".")
+          )
+            return deletar(divPopUp);
 
           spans.forEach((span) => {
             span.innerHTML = inputValor;
