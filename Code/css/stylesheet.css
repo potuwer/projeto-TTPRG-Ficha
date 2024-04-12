@@ -338,8 +338,8 @@ body::-webkit-scrollbar {
   background-color: transparent;
   width: 100%;
   height: 100%;
-  font-family: "Ingrid Darling";
-  font-size: 1.9vw;
+  font-family: "Kalam", Cursive;
+  font-size: 1.5vw;
   overflow: scroll;
 
   &::-webkit-scrollbar-thumb {
