@@ -1,4 +1,4 @@
-//Function que deleta a div pai de uma div que é pai de um botao: div > div > botaoX
+//Function que deleta a div pai de uma div: div > div
 function deletar(div) {
   const divPai = div.parentNode;
   divPai.remove();
@@ -13,7 +13,7 @@ configsBarra.forEach((botao) =>
   botao.addEventListener("click", () => {
     const barra = botao.parentNode;
 
-    const popUpHTML = `<div class="pop-up-barra">
+    const popUpHTML = `<div class="pop-up-barra" tabindex="0">
     <button class="X"></button>
     <p>Configurações da barra</p>
     <hr />
@@ -29,21 +29,24 @@ configsBarra.forEach((botao) =>
 
     const popUp = document.createElement("div");
     popUp.innerHTML = popUpHTML;
-
     barra.insertAdjacentElement("afterbegin", popUp);
+    const divPopUp = document.querySelector(".pop-up-barra");
+
+    divPopUp.focus();
+
+    fecharOnFocusOut(divPopUp);
 
     const botoes = document.querySelectorAll(".pop-up-barra button");
 
     botoes.forEach((botao) => {
       botao.addEventListener("click", () => {
-        const divPopUp = document.querySelector(".pop-up-barra");
-
         if (botao.className == "X") {
           deletar(divPopUp);
         } else {
           const spans = barra.querySelectorAll("span");
-
           const inputValor = divPopUp.querySelector("input").value;
+
+          if (inputValor == 0 || inputValor == null) return deletar(divPopUp);
 
           spans.forEach((span) => {
             span.innerHTML = inputValor;
@@ -101,4 +104,14 @@ function atualizarCheia(barra, valor, valorTotal) {
   } else {
     barra.style.width = `${decimal}%`;
   }
+}
+
+//fechar pop up on focus out
+
+function fecharOnFocusOut(popUp) {
+  popUp.addEventListener("focusout", (e) => {
+    if (!popUp.contains(e.relatedTarget)) {
+      deletar(popUp);
+    }
+  });
 }
