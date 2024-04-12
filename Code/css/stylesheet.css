@@ -11,6 +11,10 @@ body::-webkit-scrollbar {
   width: 0;
 }
 
+.none {
+  display: none;
+}
+
 /*                                           IMAGEM PRINCIPAL*/
 .imagem-principal-container {
   width: 100vw;
@@ -360,21 +364,13 @@ body::-webkit-scrollbar {
   background: rgba(0, 0, 0, 0);
 }
 
-.container-descricao .descricao {
-  display: block;
-}
-
-.container-descricao .notas {
-  display: none;
-}
 .container-descricao button {
   width: 1.6vw;
   height: 1.6vw;
   position: absolute;
   top: 0.75vw;
   right: 0.75vw;
-  background-image: url(/Code/assets/Icons/icon-notes.png);
-  background-size: cover;
+  background-size: contain;
   border: 0.16vw solid black;
   cursor: pointer;
 }

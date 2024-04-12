@@ -1,7 +1,7 @@
 //Function que deleta a div pai de uma div que é pai de um botao: div > div > botaoX
 function deletar(div) {
-  const divPaiPopUp = div.parentNode;
-  divPaiPopUp.remove();
+  const divPai = div.parentNode;
+  divPai.remove();
 }
 
 //Cria um pop-up que pede o valor total da barra e o altera (futuramente imlementa mais utilidades pra barra)
