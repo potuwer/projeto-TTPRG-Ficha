@@ -2,7 +2,7 @@ const botaoDescricao = document.querySelector(".container-descricao button");
 const descricao = document.querySelector(".texto");
 const notas = document.querySelector(".notas");
 
-botaoDescricao.style.backgroundImage = "url(/Code/assets/Icons/icon-notes.png)";
+botaoDescricao.style.backgroundImage = "url(./assets/Icons/icon-notes.png)";
 let toogle = true;
 
 botaoDescricao.addEventListener("click", () => {
@@ -10,12 +10,10 @@ botaoDescricao.addEventListener("click", () => {
   descricao.classList.toggle("none");
 
   if (toogle) {
-    botaoDescricao.style.backgroundImage =
-      "url(/Code/assets/Icons/icon-livro.png)";
+    botaoDescricao.style.backgroundImage = "url(./assets/Icons/icon-livro.png)";
     toogle = false;
   } else {
-    botaoDescricao.style.backgroundImage =
-      "url(/Code/assets/Icons/icon-notes.png)";
+    botaoDescricao.style.backgroundImage = "url(./assets/Icons/icon-notes.png)";
     toogle = true;
   }
 });

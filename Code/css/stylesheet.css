@@ -339,14 +339,22 @@ body::-webkit-scrollbar {
   background-color: transparent;
   width: 100%;
   height: 100%;
-  font-family: "Kalam", Cursive;
-  font-size: 1.5vw;
   overflow: scroll;
 
   &::-webkit-scrollbar-thumb {
     /* Fazer thumb da scrollbar invisivel, mas existente para nao mudar o padding*/
     background-color: transparent;
   }
+}
+
+.texto {
+  font-family: "Ingrid Darling";
+  font-size: 2vw;
+}
+
+.notas {
+  font-family: "Kalam", Cursive;
+  font-size: 1.5vw;
 }
 
 .container-descricao p:hover {
