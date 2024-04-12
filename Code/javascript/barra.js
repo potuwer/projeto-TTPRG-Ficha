@@ -64,26 +64,32 @@ componentesBarra.forEach((cBarra) => {
   });
 
   botoes.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const barra = cBarra.querySelector(".cheia");
-      const spanTemporario = barra.firstChild;
+    const barra = cBarra.querySelector(".cheia");
+    const spanTemporario = barra.firstChild;
+    const spanFinal = barra.lastChild;
 
+    botao.addEventListener("click", () => {
+      const valorMaximo = parseInt(spanFinal.innerHTML);
       const valorAtribuido = parseInt(botao.innerHTML);
       const valorTemporario = parseInt(spanTemporario.innerHTML);
+      const valorTotal = parseInt(spanFinal.innerHTML);
 
       const novoValor = valorAtribuido + valorTemporario;
       spanTemporario.innerHTML = novoValor;
+      if (novoValor > valorMaximo) {
+        spanTemporario.style.color = "yellow";
+      } else {
+        spanTemporario.style.color = "";
+      }
 
-      atualizarCheia(barra, novoValor);
+      atualizarCheia(barra, novoValor, valorTotal);
     });
   });
 });
 
 // Fazer largura da .cheia responsiva ao valor do teporario
 
-function atualizarCheia(barra, valor) {
-  const valorTotal = parseInt(barra.lastChild.innerHTML);
-
+function atualizarCheia(barra, valor, valorTotal) {
   let decimal = valor / valorTotal;
   decimal *= 100;
 
