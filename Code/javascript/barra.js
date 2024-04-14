@@ -1,19 +1,14 @@
-//Function que deleta a div pai de uma div: div > div
-function deletar(div) {
-  const divPai = div.parentNode;
-  divPai.remove();
-}
-
 //Cria um pop-up que pede o valor total da barra e o altera (futuramente imlementa mais utilidades pra barra)
+const ListaBotaoConfig = document.querySelectorAll(".barra button");
 
-const componentesBarra = document.querySelectorAll(".componente-barra");
-const configsBarra = document.querySelectorAll(".barra button");
-
-configsBarra.forEach((botao) =>
+ListaBotaoConfig.forEach((botao) =>
   botao.addEventListener("click", () => {
     const barra = botao.parentNode;
 
-    const popUpHTML = `<div class="pop-up-barra" tabindex="0">
+    const popUp = document.createElement("div");
+    popUp.classList.add("pop-up-barra");
+    popUp.setAttribute("tabindex", "0");
+    popUp.innerHTML = `
     <button class="X"></button>
     <p>Configurações da barra</p>
     <hr />
@@ -24,40 +19,37 @@ configsBarra.forEach((botao) =>
         <input type="number" />
       </li>
       <li><button>OK</button></li>
-    </ul>
-  </div>`;
+    </ul>`;
 
-    const popUp = document.createElement("div");
-    popUp.innerHTML = popUpHTML;
     barra.insertAdjacentElement("afterbegin", popUp);
-    const divPopUp = document.querySelector(".pop-up-barra");
 
-    divPopUp.focus();
+    fecharOnFocusOut(popUp);
 
-    fecharOnFocusOut(divPopUp);
+    const botoesPopUp = popUp.querySelectorAll("button");
 
-    const botoes = document.querySelectorAll(".pop-up-barra button");
-
-    botoes.forEach((botao) => {
+    botoesPopUp.forEach((botao) => {
       botao.addEventListener("click", () => {
         if (botao.className == "X") {
-          deletar(divPopUp);
+          popUp.remove();
+          return;
         } else {
           const spans = barra.querySelectorAll("span");
-          const inputValor = divPopUp.querySelector("input").value;
+          const inputValor = popUp.querySelector("input").value;
 
           if (
             inputValor == 0 ||
             inputValor == null ||
             inputValor.includes(",") ||
             inputValor.includes(".")
-          )
-            return deletar(divPopUp);
+          ) {
+            popUp.remove();
+            return;
+          }
 
           spans.forEach((span) => {
             span.innerHTML = inputValor;
           });
-          deletar(divPopUp);
+          popUp.remove();
         }
       });
     });
@@ -65,17 +57,18 @@ configsBarra.forEach((botao) =>
 );
 
 //Botões que alteram no valor temporario
+const listaComponentesBarra = document.querySelectorAll(".componente-barra");
 
-componentesBarra.forEach((cBarra) => {
+listaComponentesBarra.forEach((cBarra) => {
   const botoesSujo = cBarra.querySelectorAll("button");
   const botoes = Array.from(botoesSujo).filter((b) => {
     return b.parentNode === cBarra;
   });
 
   botoes.forEach((botao) => {
-    const barra = cBarra.querySelector(".cheia");
-    const spanTemporario = barra.firstChild;
-    const spanFinal = barra.lastChild;
+    const cheia = cBarra.querySelector(".cheia");
+    const spanTemporario = cheia.firstChild;
+    const spanFinal = cheia.lastChild;
 
     botao.addEventListener("click", () => {
       const valorMaximo = parseInt(spanFinal.innerHTML);
@@ -91,7 +84,7 @@ componentesBarra.forEach((cBarra) => {
         spanTemporario.style.color = "";
       }
 
-      atualizarCheia(barra, novoValor, valorTotal);
+      atualizarCheia(cheia, novoValor, valorTotal);
     });
   });
 });
@@ -114,10 +107,11 @@ function atualizarCheia(barra, valor, valorTotal) {
 
 //fechar pop up on focus out
 
-function fecharOnFocusOut(popUp) {
-  popUp.addEventListener("focusout", (e) => {
-    if (!popUp.contains(e.relatedTarget)) {
-      deletar(popUp);
+function fecharOnFocusOut(item) {
+  item.focus();
+  item.addEventListener("focusout", (e) => {
+    if (!item.contains(e.relatedTarget)) {
+      item.remove();
     }
   });
 }
