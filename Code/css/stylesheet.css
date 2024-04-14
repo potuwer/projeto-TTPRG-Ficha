@@ -502,20 +502,20 @@ body::-webkit-scrollbar {
 
 .container-habilidades {
   width: 100%;
-  max-height: 330px;
-  margin-top: 50px;
-  padding: 20px 10px 20px 10px;
+  max-height: 25vw;
+  margin-top: 3.8vw;
+  padding: 1.5vw 0.75vw 1.5vw 0.75vw;
   background-image: url(../assets/HabilidadesContainer-fundo.png);
   background-size: cover;
   border-radius: 1.14vw;
-  box-shadow: 0px 0px 11.6vw 6px rgba(0, 0, 0, 0.4) inset,
-    0px 0px 10px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 11.6vw 0.45vw rgba(0, 0, 0, 0.4) inset,
+    0px 0px 0.75vw 0.75vw rgba(0, 0, 0, 0.25);
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  row-gap: 20px;
-  column-gap: 30px;
+  row-gap: 1.5vw;
+  column-gap: 2.3vw;
   overflow-y: scroll;
 }
 
@@ -526,9 +526,9 @@ body::-webkit-scrollbar {
 .habilidade {
   grid-row: span 1;
   grid-column: span 1;
-  border: 10px solid #6bda37;
+  border: 0.75vw solid #6bda37;
   box-sizing: border-box;
-  padding: 4px 6px 4px 6px;
+  padding: 0.3vw 0.5vw 0.3vw 0.5vw;
   display: flex;
   background-image: url(../assets/Habilidade-fundo.png);
   background-size: cover;
@@ -536,10 +536,10 @@ body::-webkit-scrollbar {
 
 .habilidade img {
   cursor: pointer;
-  border: 2px solid #633814;
-  width: 57px;
-  height: 57px;
-  margin-right: 10px;
+  border: 0.2vw solid #633814;
+  width: 4.3vw;
+  aspect-ratio: 1/1;
+  margin-right: 0.75vw;
 }
 
 .habilidade ul * {
@@ -556,24 +556,25 @@ body::-webkit-scrollbar {
 }
 
 .habilidade span {
-  width: 290px;
+  width: 22vw;
   color: #000;
   text-align: center;
   font-family: MedievalSharp;
-  font-size: 25px;
+  font-size: 2vw;
   font-weight: 500;
 }
 
 .detalhes {
   font-family: Average;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-weight: 400;
   display: flex;
 }
 
 .detalhes img {
-  width: 26px;
-  height: 23px;
+  margin-inline: 0.5vw;
+  height: 1.7vw;
+  width: 2vw;
 }
 
 .detalhes u:nth-of-type(1) {
@@ -591,14 +592,14 @@ body::-webkit-scrollbar {
 .habilidade ul li p {
   color: #000;
   font-family: "Abhaya Libre Medium";
-  font-size: 13px;
+  font-size: 1vw;
 }
 
 /*                                           INVENTARIO*/
 
 .inventario {
-  margin-top: 80px;
-  margin-bottom: 100px;
+  margin-top: 6vw;
+  margin-bottom: 7.6vw;
   width: 100%;
   height: auto;
   display: flex;
@@ -616,17 +617,17 @@ body::-webkit-scrollbar {
 
 .capacidade {
   width: 33%;
-  height: 44px;
+  height: 3.33vw;
   background-image: url(../assets/InventarioCapacidade-fundo.png);
   background-size: cover;
   text-align: center;
   box-sizing: border-box;
 
   border-radius: 1.14vw 1.14vw 0px 0px;
-  border: 6px solid #3a230e;
+  border: 0.454vw solid #3a230e;
   color: #000;
   font-family: "Koh Santepheap";
-  font-size: 25px;
+  font-size: 2vw;
   font-weight: 700;
 }
 
@@ -660,7 +661,7 @@ body::-webkit-scrollbar {
 
 .armadura-topo {
   width: 100%;
-  height: 44px;
+  height: 3.33vw;
   background-image: url(../assets/ArmaduraTopo-Fundo.png);
   background-size: cover;
   text-align: center;
@@ -668,9 +669,9 @@ body::-webkit-scrollbar {
 
   color: #252b2e;
   border-radius: 1.14vw 1.14vw 0px 0px;
-  border: 6px SOLID #454f53;
+  border: 0.454vw SOLID #454f53;
   font-family: "Koh Santepheap";
-  font-size: 25px;
+  font-size: 2vw;
   font-weight: 900;
 }
 
