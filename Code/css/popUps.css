@@ -1,18 +1,24 @@
-/* X */
+@charset "UTF-8";
+/*Variáveis para reutiliazar MIXINS*/
+/* Botão  X para sair*/
 .X {
   background-image: url(../assets/Icons/X.png);
   background-size: contain;
   height: 20px;
   aspect-ratio: 1/1;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 5px;
+  right: 5px;
   border: 0.075vw solid rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
 
 /* POP UP BARRA*/
-.pop-up-barra {
+.fundo-verde {
+  background-color: #6bda37;
+  /* POP UP INFO HABILIDADE */
+}
+.fundo-verde .pop-up-barra {
   background-color: #d9d9d9;
   border: 5px solid black;
   width: 238px;
@@ -23,8 +29,7 @@
   top: -100px;
   left: 10px;
 }
-
-.pop-up-barra hr {
+.fundo-verde .pop-up-barra hr {
   width: auto;
   height: 3px;
   background-color: #000;
@@ -32,8 +37,31 @@
   border: none;
   margin-block: 10px;
 }
-
-.pop-up-barra > p {
+.fundo-verde .pop-up-barra button {
+  cursor: pointer;
+}
+.fundo-verde .pop-up-barra ul {
+  list-style: none;
+  flex-grow: 1;
+  display: block;
+  padding: 0px;
+  margin: 0px;
+}
+.fundo-verde .pop-up-barra ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.fundo-verde .pop-up-barra ul li input {
+  width: 50px;
+  height: 20px;
+}
+.fundo-verde .pop-up-barra ul li input::-webkit-inner-spin-button,
+.fundo-verde .pop-up-barra ul li input::-webkit-outer-spin-button {
+  display: none;
+}
+.fundo-verde .pop-up-barra > p {
   color: #000;
   text-align: center;
   font-family: "Merriweather Sans";
@@ -41,32 +69,126 @@
   font-weight: 1000;
   margin: 0px;
 }
-
-.pop-up-barra ul {
-  list-style: none;
-  flex-grow: 1;
-  display: block;
-  padding: 0px;
-  margin: 0px;
-}
-
-.pop-up-barra ul li {
+.fundo-verde .info-habilidade {
+  /*position: absolute;*/
+  background-image: url(../assets/PopUpHabilidade-fundo.png);
+  background-size: cover;
+  border-radius: 50px;
+  border: 6px solid #6bda37;
+  box-sizing: border-box;
+  width: 66vw;
+  height: 517px;
   display: flex;
   flex-direction: row;
+  z-index: 100;
+}
+.fundo-verde .info-habilidade .principal {
+  display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
+  width: 40%;
+  padding: 50px;
+  box-sizing: border-box;
 }
-
-.pop-up-barra ul li input {
-  width: 50px;
-  height: 20px;
+.fundo-verde .info-habilidade .principal .container-foto-habilidade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 260px;
+  height: 260px;
 }
-
-.pop-up-barra ul li input::-webkit-inner-spin-button,
-.pop-up-barra ul li input::-webkit-outer-spin-button {
+.fundo-verde .info-habilidade .principal img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 8px solid #2f1e04;
+  z-index: 0;
+}
+.fundo-verde .info-habilidade .principal label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.6) inset;
+}
+.fundo-verde .info-habilidade .principal label input {
   display: none;
 }
-
-.pop-up-barra ul li button {
-  cursor: pointer;
+.fundo-verde .info-habilidade .principal ul {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  list-style: none;
+  flex-grow: 1;
+  margin: 0%;
+  padding: 0%;
+  flex-direction: column;
 }
+.fundo-verde .info-habilidade .principal ul li {
+  color: #2f1e04;
+  font-family: Inter;
+  font-size: 25px;
+  font-weight: 900;
+  display: inline-flex;
+}
+.fundo-verde .info-habilidade .principal ul li input {
+  display: inline-flex;
+  width: 100%;
+  margin-left: 10px;
+  border: none;
+  background: transparent;
+  color: #2f1e04;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+}
+.fundo-verde .info-habilidade .propriedades {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  padding: 30px;
+}
+.fundo-verde .info-habilidade .propriedades .habilidade-nome {
+  color: #281a04;
+  text-align: center;
+  font-family: "Metal Mania";
+  font-size: 60px;
+  font-weight: 400;
+  display: block;
+}
+.fundo-verde .info-habilidade .propriedades hr {
+  width: 90%;
+  height: 3px;
+  margin-block: 30px;
+  background-color: #2f1e04;
+  border: none;
+  display: block;
+}
+.fundo-verde .info-habilidade .propriedades p {
+  margin: 0px;
+  align-self: flex-start;
+  color: #2f1e04;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 900;
+  display: block;
+}
+.fundo-verde .info-habilidade .propriedades textarea {
+  resize: none;
+  background: transparent;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+  color: #2f1e04;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}/*# sourceMappingURL=popUps.css.map */

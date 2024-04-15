@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>teste</title>
-    <link rel="stylesheet" href="/Code/css/popUps.css" />
+    <link rel="stylesheet" href="./css/popUps.css" />
     <style>
       body {
         height: 100vh;
@@ -16,38 +16,57 @@
         position: relative;
       }
     </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div>
-      <div class="info-habilidade">
-        <div class="principal">
-          <img src="/img/Habilidade 1.png" alt="Foto Habilidade" />
+      <div class="fundo-verde">
+        <div class="info-habilidade">
+          <button class="X"></button>
+          <div class="principal">
+          <div class="container-foto-habilidade">
+            <img src="/img/Habilidade 1.png" alt="Foto Habilidade" />
+            <label class="foto-habilidade"
+              ><input type="file" accept="image/*" />
+            </label>
+          </div>
           <ul>
             <li>
               Tempo:
-              <span contenteditable="true" spellcheck="false">1 round</span>
+              <input type="text" placeholder="Duração..."></input>
             </li>
             <li>
               Custo:
-              <span contenteditable="true" spellcheck="false">4 PE</span>
+              <input type="text" placeholder="Preço..."></input>
             </li>
             <li>
               Ganho:
-              <span contenteditable="true" spellcheck="false">0 Bônus</span>
+              <input type="text" placeholder="Ganha..."></input>
             </li>
           </ul>
-        </div>
-        <div class="propriedades">
+          </div>
+          <div class="propriedades">
           <p class="habilidade-nome">Golpe Vertical Dos Ventos</p>
           <hr />
-          <p>
-            Propriedade:
-            <span contenteditable="true" spellcheck="false"></span>
-          </p>
-          <p>
-            Descrição:
-            <span contenteditable="true" spellcheck="false"></span>
-          </p>
+          <p>Propriedade:</p>
+            <textarea maxlength="354"></textarea>
+          
+          <p>Descrição:</p>
+            <textarea maxlength="354"></textarea>
+          </div>
         </div>
       </div>
     </div>

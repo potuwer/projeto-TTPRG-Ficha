@@ -1,0 +1,214 @@
+/*Variáveis para reutiliazar MIXINS*/
+
+@mixin centrar-itens($align, $just) {
+  display: flex;
+  align-items: $align;
+  justify-content: $just;
+}
+
+/* Botão  X para sair*/
+.X {
+  background-image: url(../assets/Icons/X.png);
+  background-size: contain;
+  height: 20px;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: 0.075vw solid rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+/* POP UP BARRA*/
+
+.fundo-verde {
+  background-color: #6bda37;
+
+  .pop-up-barra {
+    background-color: #d9d9d9;
+    border: 5px solid black;
+    width: 238px;
+    height: auto;
+    padding: 20px;
+    position: absolute;
+    z-index: 10;
+    top: -100px;
+    left: 10px;
+
+    hr {
+      width: auto;
+      height: 3px;
+      background-color: #000;
+      box-shadow: none;
+      border: none;
+      margin-block: 10px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      flex-grow: 1;
+      display: block;
+      padding: 0px;
+      margin: 0px;
+
+      li {
+        @include centrar-itens(center, space-around);
+        flex-direction: row;
+
+        input {
+          width: 50px;
+          height: 20px;
+        }
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+          display: none;
+        }
+      }
+    }
+    > p {
+      color: #000;
+      text-align: center;
+      font-family: "Merriweather Sans";
+      font-size: 20px;
+      font-weight: 1000;
+      margin: 0px;
+    }
+  }
+
+  /* POP UP INFO HABILIDADE */
+
+  .info-habilidade {
+    /*position: absolute;*/
+    background-image: url(../assets/PopUpHabilidade-fundo.png);
+    background-size: cover;
+    border-radius: 50px;
+    border: 6px solid #6bda37;
+    box-sizing: border-box;
+    width: 66vw;
+    height: 517px;
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+
+    .principal {
+      @include centrar-itens(center, space-around);
+      flex-direction: column;
+      width: 40%;
+      padding: 50px;
+      box-sizing: border-box;
+
+      .container-foto-habilidade {
+        @include centrar-itens(center, center);
+        position: relative;
+        width: 260px;
+        height: 260px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        border-radius: 10px;
+        border: 8px solid #2f1e04;
+        z-index: 0;
+      }
+
+      label {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        cursor: pointer;
+        box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.6) inset;
+
+        input {
+          display: none;
+        }
+      }
+
+      ul {
+        @include centrar-itens(flex-start, space-evenly);
+        list-style: none;
+        flex-grow: 1;
+        margin: 0%;
+        padding: 0%;
+        flex-direction: column;
+
+        li {
+          color: #2f1e04;
+          font-family: Inter;
+          font-size: 25px;
+          font-weight: 900;
+          display: inline-flex;
+
+          input {
+            display: inline-flex;
+            width: 100%;
+            margin-left: 10px;
+            border: none;
+            background: transparent;
+
+            color: #2f1e04;
+            font-family: Inter;
+            font-size: 20px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    .propriedades {
+      @include centrar-itens(center, center);
+      flex-direction: column;
+      width: 60%;
+      padding: 30px;
+
+      .habilidade-nome {
+        color: #281a04;
+        text-align: center;
+        font-family: "Metal Mania";
+        font-size: 60px;
+        font-weight: 400;
+        display: block;
+      }
+
+      hr {
+        width: 90%;
+        height: 3px;
+        margin-block: 30px;
+        background-color: #2f1e04;
+        border: none;
+        display: block;
+      }
+
+      p {
+        margin: 0px;
+        align-self: flex-start;
+        color: #2f1e04;
+        font-family: Inter;
+        font-size: 15px;
+        font-weight: 900;
+        display: block;
+      }
+
+      textarea {
+        resize: none;
+        background: transparent;
+        flex-grow: 1;
+        width: 100%;
+        box-sizing: border-box;
+
+        color: #2f1e04;
+        font-family: Inter;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+}
