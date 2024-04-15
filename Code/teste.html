@@ -59,15 +59,29 @@
           </ul>
           </div>
           <div class="propriedades">
-          <p class="habilidade-nome">Golpe Vertical Dos Ventos</p>
+          <textarea class="habilidade-nome" rows="2" spellcheck="false" maxlength="37"></textarea>
           <hr />
           <p>Propriedade:</p>
-            <textarea maxlength="354"></textarea>
+            <textarea rows="4" maxlength="231" spellcheck="false"></textarea>
           
           <p>Descrição:</p>
-            <textarea maxlength="354"></textarea>
+            <textarea rows="4" maxlength="231" spellcheck="false"></textarea>
           </div>
         </div>
+        <script>
+        const texteareas = document.querySelectorAll("textarea")
+
+        texteareas.forEach((input) => {
+          input.addEventListener("input", () => {
+          if (input.value != ""){
+            input.style.border = "none";
+          } else {
+            input.style.border = "1px dotted #281a04"
+          }
+        })
+        })
+        
+        </script>
       </div>
     </div>
   </body>
