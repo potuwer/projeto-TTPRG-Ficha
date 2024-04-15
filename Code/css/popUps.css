@@ -14,11 +14,7 @@
 }
 
 /* POP UP BARRA*/
-.fundo-verde {
-  background-color: #6bda37;
-  /* POP UP INFO HABILIDADE */
-}
-.fundo-verde .pop-up-barra {
+.pop-up-barra {
   background-color: #d9d9d9;
   border: 5px solid black;
   width: 238px;
@@ -29,7 +25,7 @@
   top: -100px;
   left: 10px;
 }
-.fundo-verde .pop-up-barra hr {
+.pop-up-barra hr {
   width: auto;
   height: 3px;
   background-color: #000;
@@ -37,37 +33,42 @@
   border: none;
   margin-block: 10px;
 }
-.fundo-verde .pop-up-barra button {
+.pop-up-barra button {
   cursor: pointer;
 }
-.fundo-verde .pop-up-barra ul {
+.pop-up-barra ul {
   list-style: none;
   flex-grow: 1;
   display: block;
   padding: 0px;
   margin: 0px;
 }
-.fundo-verde .pop-up-barra ul li {
+.pop-up-barra ul li {
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
 }
-.fundo-verde .pop-up-barra ul li input {
+.pop-up-barra ul li input {
   width: 50px;
   height: 20px;
 }
-.fundo-verde .pop-up-barra ul li input::-webkit-inner-spin-button,
-.fundo-verde .pop-up-barra ul li input::-webkit-outer-spin-button {
+.pop-up-barra ul li input::-webkit-inner-spin-button,
+.pop-up-barra ul li input::-webkit-outer-spin-button {
   display: none;
 }
-.fundo-verde .pop-up-barra > p {
+.pop-up-barra > p {
   color: #000;
   text-align: center;
   font-family: "Merriweather Sans";
   font-size: 20px;
   font-weight: 1000;
   margin: 0px;
+}
+
+/* POP UP INFO HABILIDADE */
+.fundo-verde {
+  background-color: #6bda37;
 }
 .fundo-verde .info-habilidade {
   /*position: absolute;*/

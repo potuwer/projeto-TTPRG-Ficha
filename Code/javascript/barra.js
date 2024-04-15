@@ -1,3 +1,5 @@
+import { fecharOnFocusOut } from "./focusOut.js";
+
 //Cria um pop-up que pede o valor total da barra e o altera (futuramente imlementa mais utilidades pra barra)
 const ListaBotaoConfig = document.querySelectorAll(".barra button");
 
@@ -103,15 +105,4 @@ function atualizarCheia(barra, valor, valorTotal) {
   } else {
     barra.style.width = `${decimal}%`;
   }
-}
-
-//fechar pop up on focus out
-
-function fecharOnFocusOut(item) {
-  item.focus();
-  item.addEventListener("focusout", (e) => {
-    if (!item.contains(e.relatedTarget)) {
-      item.remove();
-    }
-  });
 }
