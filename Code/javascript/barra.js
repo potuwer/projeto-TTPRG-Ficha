@@ -11,7 +11,7 @@ ListaBotaoConfig.forEach((botao) =>
     popUp.classList.add("pop-up-barra");
     popUp.setAttribute("tabindex", "0");
     popUp.innerHTML = `
-    <button class="X"></button>
+    <button class="X"><img src="./assets/Icons/X.png" /></button>
     <p>Configurações da barra</p>
     <hr />
     <ul>
