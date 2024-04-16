@@ -21,6 +21,33 @@
      object-fit: cover;
 }
 
+.remover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  height: 25px;
+  width: 140px;
+  background-color: rgba(236, 44, 44, 0.5);
+  border: 3px solid rgba(61, 2, 2, 0.7);
+  padding: 1px;
+}
+.remover img {
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+.remover p {
+  text-indent: 5px;
+  margin: 0;
+  color: #fff;
+  font-family: "Source Serif 4";
+  font-size: 20px;
+  font-weight: 700;
+}
+
 /* POP UP BARRA*/
 .pop-up-barra {
   background-color: #d9d9d9;
