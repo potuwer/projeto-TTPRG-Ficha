@@ -47,7 +47,7 @@ botaoAddHabilidade.addEventListener("click", () => {
           <p>Descrição:</p>
             <textarea rows="4" maxlength="196" spellcheck="false" id="descricao"></textarea>
           </div>
-          <button class="ok" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/icon-plus.png"><p>OK</p></button>
+          <button class="ok" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/icon-ok.png"><p>OK</p></button>
         </div>
   </div>`;
 
