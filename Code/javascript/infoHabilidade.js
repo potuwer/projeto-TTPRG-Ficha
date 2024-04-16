@@ -84,19 +84,23 @@ botaoAddHabilidade.addEventListener("click", () => {
   const inputTempo = popUp.querySelector("#tempo");
   const inputCusto = popUp.querySelector("#custo");
   const inputGanho = popUp.querySelector("#ganho");
-  const inputPropiedade = popUp.querySelector("#propriedade");
+  const inputPropriedade = popUp.querySelector("#propriedade");
   const inputDescricao = popUp.querySelector("#descricao");
 
-  //pegar url imagem dps
+  let url;
+  promiseUrlFoto.then((resultado) => {
+    url = resultado;
+    console.log(url);
+  });
 
   const botaoOK = popUp.querySelector(".ok");
   botaoOK.addEventListener("click", () => {
     const valorNome = nome.value;
-    const valorFoto = "img/src";
+    const valorFoto = url;
     const valorTempo = inputTempo.value;
     const valorCusto = inputCusto.value;
     const valorGanho = inputGanho.value;
-    const valorPropriedade = inputPropiedade.value;
+    const valorPropriedade = inputPropriedade.value;
     const valorDescricao = inputDescricao.value;
 
     if (
@@ -152,7 +156,7 @@ function atualizarHabilidades() {
     const div = document.createElement("div");
     div.classList.add("habilidade");
     div.innerHTML = `
-          <img src="/img/Habilidade 1.png" alt="Foto Hablidade" />
+          <img src="${habi.foto}" alt="Foto Hablidade" />
           <ul>
             <li><span>${habi.nome}</span></li>
             <li>
@@ -175,5 +179,4 @@ function atualizarHabilidades() {
 }
 
 atualizarHabilidades();
-console.log(habilidadesCaixa);
 // Abrir habilidade ja criada, puxando info ela array- possivel editar essa array, caso edite, ao fechar, confere-se se ha algm alteração, se houver um alerta pergunta se quer alterar
