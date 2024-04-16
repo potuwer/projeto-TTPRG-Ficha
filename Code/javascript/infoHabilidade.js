@@ -39,7 +39,7 @@ botaoAddHabilidade.addEventListener("click", () => {
           </ul>
           </div>
           <div class="propriedades">
-          <textarea class="habilidade-nome" spellcheck="false" maxlength="34"></textarea>
+          <textarea class="habilidade-nome" spellcheck="false" maxlength="24"></textarea>
           <hr />
           <p>Propriedade:</p>
             <textarea rows="4" maxlength="196" spellcheck="false" id="propriedade"></textarea>
@@ -125,6 +125,8 @@ botaoAddHabilidade.addEventListener("click", () => {
     popUp.remove();
     botaoAddHabilidade.disabled = false;
     botaoAddHabilidade.style.cursor = "pointer";
+
+    atualizarHabilidades();
   });
 
   //Deletar pop up
@@ -138,8 +140,40 @@ botaoAddHabilidade.addEventListener("click", () => {
     botaoAddHabilidade.style.cursor = "pointer";
   });
 });
-// Criar habilidade e enviar para array- Caso feche o pop up, abre um alerta pergntando se quers descartar essa habilidade.
 
 // Criar, no container-habilidade, mini habilidade puxando pela array
 
+function atualizarHabilidades() {
+  const habilidadesCaixa = document.querySelectorAll("div.habilidade");
+  habilidadesCaixa.forEach((caixa) => {
+    caixa.remove();
+  });
+  ListaHabilidades.forEach((habi) => {
+    const div = document.createElement("div");
+    div.classList.add("habilidade");
+    div.innerHTML = `
+          <img src="/img/Habilidade 1.png" alt="Foto Hablidade" />
+          <ul>
+            <li><span>${habi.nome}</span></li>
+            <li>
+              <div class="detalhes">
+                <u>${habi.custo}</u>
+                <img src="./assets/Icons/icon-dice.png" alt="Dados" />
+                <u>${habi.ganho}</u>
+              </div>
+            </li>
+            <li>
+              <p>
+                ${habi.propriedade}
+              </p>
+            </li>
+          </ul>
+        `;
+
+    containerHabilidade.insertBefore(div, botaoAddHabilidade);
+  });
+}
+
+atualizarHabilidades();
+console.log(habilidadesCaixa);
 // Abrir habilidade ja criada, puxando info ela array- possivel editar essa array, caso edite, ao fechar, confere-se se ha algm alteração, se houver um alerta pergunta se quer alterar

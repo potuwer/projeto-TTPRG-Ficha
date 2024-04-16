@@ -27,6 +27,14 @@ ListaBotaoConfig.forEach((botao) =>
 
     fecharOnFocusOut(popUp);
 
+    //Função para nao permitir que o input receba mais de 5 algarismos
+    const input = popUp.querySelector("input");
+    input.addEventListener("input", () => {
+      if (input.value.length > 3) {
+        input.value = input.value.slice(0, 3);
+      }
+    });
+
     const botoesPopUp = popUp.querySelectorAll("button");
 
     botoesPopUp.forEach((botao) => {
@@ -36,7 +44,7 @@ ListaBotaoConfig.forEach((botao) =>
           return;
         } else {
           const spans = barra.querySelectorAll("span");
-          const inputValor = popUp.querySelector("input").value;
+          const inputValor = input.value;
 
           if (
             inputValor == 0 ||
