@@ -6,6 +6,33 @@
   justify-content: $just;
 }
 
+@mixin botao-padrao($width, $height, $corFundo, $borda, $bottom, $right) {
+  flex-direction: row;
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+  width: $width;
+  height: $height;
+  background-color: $corFundo;
+  border: $borda;
+  padding: 1px;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  p {
+    text-indent: 5px;
+    margin: 0;
+    color: #fff;
+    font-family: "Source Serif 4";
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
 /* Botão  X para sair*/
 .X {
   background-color: rgba($color: #3d3d3d, $alpha: 0.5);
@@ -30,29 +57,26 @@
 
 .remover {
   @include centrar-itens(center, center);
-  flex-direction: row;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  height: 25px;
-  width: 140px;
-  background-color: rgba(236, 44, 44, 0.5);
-  border: 3px solid rgba(61, 2, 2, 0.7);
-  padding: 1px;
+  @include botao-padrao(
+    140px,
+    25px,
+    rgba(236, 44, 44, 0.5),
+    3px solid rgba(61, 2, 2, 0.7),
+    5px,
+    5px
+  );
+}
 
-  img {
-    height: 100%;
-    aspect-ratio: 1/1;
-  }
-
-  p {
-    text-indent: 5px;
-    margin: 0;
-    color: #fff;
-    font-family: "Source Serif 4";
-    font-size: 20px;
-    font-weight: 700;
-  }
+.ok {
+  @include centrar-itens(center, center);
+  @include botao-padrao(
+    70px,
+    25px,
+    rgba(19, 211, 211, 0.5),
+    3px solid rgba(194, 253, 253, 0.7),
+    5px,
+    150px
+  );
 }
 
 /* POP UP BARRA*/
@@ -214,7 +238,7 @@
         height: auto;
         width: 100%;
 
-        border: 1px dotted #281a04;
+        border: 2px dotted #281a04;
       }
 
       hr {
@@ -242,7 +266,7 @@
         flex-grow: 1;
         width: 100%;
         box-sizing: border-box;
-        border: 1px dotted #281a04;
+        border: 2px dotted #281a04;
 
         color: #2f1e04;
         font-family: Inter;

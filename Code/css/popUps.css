@@ -29,17 +29,46 @@
   position: absolute;
   bottom: 5px;
   right: 5px;
-  height: 25px;
   width: 140px;
+  height: 25px;
   background-color: rgba(236, 44, 44, 0.5);
   border: 3px solid rgba(61, 2, 2, 0.7);
   padding: 1px;
+  cursor: pointer;
 }
 .remover img {
   height: 100%;
   aspect-ratio: 1/1;
 }
 .remover p {
+  text-indent: 5px;
+  margin: 0;
+  color: #fff;
+  font-family: "Source Serif 4";
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ok {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: 5px;
+  right: 150px;
+  width: 70px;
+  height: 25px;
+  background-color: rgba(19, 211, 211, 0.5);
+  border: 3px solid rgba(194, 253, 253, 0.7);
+  padding: 1px;
+  cursor: pointer;
+}
+.ok img {
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+.ok p {
   text-indent: 5px;
   margin: 0;
   color: #fff;
@@ -200,7 +229,7 @@
   display: block;
   height: auto;
   width: 100%;
-  border: 1px dotted #281a04;
+  border: 2px dotted #281a04;
 }
 .fundo-verde .info-habilidade .propriedades hr {
   width: 90%;
@@ -225,7 +254,7 @@
   flex-grow: 1;
   width: 100%;
   box-sizing: border-box;
-  border: 1px dotted #281a04;
+  border: 2px dotted #281a04;
   color: #2f1e04;
   font-family: Inter;
   font-size: 15px;
