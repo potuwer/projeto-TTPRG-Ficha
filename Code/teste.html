@@ -12,8 +12,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: gray;
       }
-      body > div {
+      body > section {
         position: relative;
       }
     </style>
@@ -60,7 +61,7 @@
           </ul>
           </div>
           <div class="propriedades">
-          <textarea class="habilidade-nome" rows="2" spellcheck="false" maxlength="37"></textarea>
+          <textarea class="habilidade-nome" spellcheck="false" maxlength="34"></textarea>
           <hr />
           <p>Propriedade:</p>
             <textarea rows="4" maxlength="196" spellcheck="false"></textarea>
@@ -68,8 +69,8 @@
           <p>Descrição:</p>
             <textarea rows="4" maxlength="196" spellcheck="false"></textarea>
           </div>
-          <button class="ok"><img src="./assets/Icons/icon-plus.png"><p>OK</p></button>
-          <button class="remover"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
+          <button class="ok" style="bottom: 5px; right: 150px;"><img src="./assets/Icons/icon-plus.png"><p>OK</p></button>
+          <button class="remover" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
         </div>
         <script>
         const texteareas = document.querySelectorAll("textarea")

@@ -501,6 +501,7 @@ body::-webkit-scrollbar {
 /*                                           HABILIDADES*/
 
 .container-habilidades {
+  position: relative;
   width: 100%;
   max-height: 25vw;
   margin-top: 3.8vw;
@@ -599,6 +600,7 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   img {
     // Provisório, ate eu refatorar esse codigo SCSS todo
