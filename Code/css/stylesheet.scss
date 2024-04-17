@@ -503,7 +503,7 @@ body::-webkit-scrollbar {
 .container-habilidades {
   position: relative;
   width: 100%;
-  max-height: 25vw;
+  height: 25vw;
   margin-top: 3.8vw;
   padding: 1.5vw 0.75vw 1.5vw 0.75vw;
   background-image: url(../assets/HabilidadesContainer-fundo.png);
@@ -511,6 +511,7 @@ body::-webkit-scrollbar {
   border-radius: 1.14vw;
   box-shadow: 0px 0px 11.6vw 0.45vw rgba(0, 0, 0, 0.4) inset,
     0px 0px 0.75vw 0.75vw rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -518,82 +519,76 @@ body::-webkit-scrollbar {
   row-gap: 1.5vw;
   column-gap: 2.3vw;
   overflow-y: scroll;
-}
 
-.container-habilidades::-webkit-scrollbar {
-  width: 0px;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 .habilidade {
-  grid-row: span 1;
   grid-column: span 1;
-  border: 0.75vw solid #6bda37;
+  grid-row: span 1;
+  padding: 0.3vw 0.5vw;
+  max-width: 600px;
+  max-height: 90px;
   box-sizing: border-box;
-  padding: 0.3vw 0.5vw 0.3vw 0.5vw;
   display: flex;
   background-image: url(../assets/Habilidade-fundo.png);
   background-size: cover;
-}
+  border: 0.75vw solid #6bda37;
 
-.habilidade img {
-  cursor: pointer;
-  border: 0.2vw solid #633814;
-  width: 4.3vw;
-  aspect-ratio: 1/1;
-  margin-right: 0.75vw;
-}
+  > img {
+    display: inline-block;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border: 0.2vw solid #633814;
+    box-sizing: border-box;
+    margin-right: 0.75vw;
+  }
 
-.habilidade ul * {
-  cursor: pointer;
-}
+  ul {
+    list-style: none;
+    width: 100%;
 
-.habilidade ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+    li {
+      width: 100%;
+      height: 50%;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-.habilidade span {
-  width: 22vw;
-  color: #000;
-  text-align: center;
-  font-family: MedievalSharp;
-  font-size: 2vw;
-  font-weight: 500;
-}
+      span {
+        display: inline-block;
+        text-align: left;
+        font-family: MedievalSharp;
+        font-size: 1.7vw;
+        font-weight: 500;
+      }
 
-.detalhes {
-  font-family: Average;
-  font-size: 1.5vw;
-  font-weight: 400;
-  display: flex;
-}
+      .detalhes {
+        font-family: Average;
+        font-size: 1.5vw;
+        font-weight: 400;
+        display: flex;
 
-.detalhes img {
-  margin-inline: 0.5vw;
-  height: 1.7vw;
-  width: 2vw;
-}
+        u:nth-of-type(1) {
+          color: #ac2020;
+          margin-right: 0.75vw;
+        }
 
-.detalhes u:nth-of-type(1) {
-  color: #ac2020;
-}
+        u:nth-of-type(2) {
+          color: #44ae48;
+        }
+      }
 
-.detalhes u:nth-of-type(2) {
-  color: #44ae48;
-}
-
-.habilidade ul li img {
-  border: none;
-}
-
-.habilidade ul li p {
-  color: #000;
-  font-family: "Abhaya Libre Medium";
-  font-size: 1vw;
+      p {
+        max-width: 480px;
+        word-wrap: break-word;
+      }
+    }
+  }
 }
 
 .add-habilidade {
@@ -602,9 +597,8 @@ body::-webkit-scrollbar {
   justify-content: center;
   cursor: pointer;
 
-  img {
-    // Provisório, ate eu refatorar esse codigo SCSS todo
-    border: none;
+  > img {
+    border: none !important;
   }
 }
 

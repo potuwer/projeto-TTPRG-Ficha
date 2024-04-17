@@ -30,22 +30,22 @@ botaoAddHabilidade.addEventListener("click", () => {
             </li>
             <li>
               Custo:
-              <input type="text" placeholder="Preço..." id="custo"></input>
+              <input type="text" placeholder="Preço..." maxlength="5" id="custo"></input>
             </li>
             <li>
               Ganho:
-              <input type="text" placeholder="Ganha..." id="ganho"></input>
+              <input type="text" placeholder="Ganha..." maxlength="5" id="ganho"></input>
             </li>
           </ul>
           </div>
           <div class="propriedades">
-          <textarea class="habilidade-nome" spellcheck="false" maxlength="24"></textarea>
+          <textarea class="habilidade-nome" spellcheck="false" maxlength="25"></textarea>
           <hr />
           <p>Propriedade:</p>
-            <textarea rows="4" maxlength="196" spellcheck="false" id="propriedade"></textarea>
+            <textarea rows="4" maxlength="170" spellcheck="false" id="propriedade"></textarea>
           
           <p>Descrição:</p>
-            <textarea rows="4" maxlength="196" spellcheck="false" id="descricao"></textarea>
+            <textarea rows="4" maxlength="170" spellcheck="false" id="descricao"></textarea>
           </div>
           <button class="ok" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/icon-ok.png"><p>OK</p></button>
         </div>
@@ -156,27 +156,26 @@ function atualizarHabilidades() {
     const div = document.createElement("div");
     div.classList.add("habilidade");
     div.innerHTML = `
-          <img src="${habi.foto}" alt="Foto Hablidade" />
-          <ul>
-            <li><span>${habi.nome}</span></li>
-            <li>
-              <div class="detalhes">
-                <u>${habi.custo}</u>
-                <img src="./assets/Icons/icon-dice.png" alt="Dados" />
-                <u>${habi.ganho}</u>
-              </div>
-            </li>
-            <li>
-              <p>
-                ${habi.propriedade}
-              </p>
-            </li>
-          </ul>
+    <img src="${habi.foto}" alt="Foto Hablidade" />
+    <ul>
+      <li>
+        <span>${habi.nome}</span>
+        <div class="detalhes">
+          <u>${habi.custo}</u>
+          <u>${habi.ganho}</u>
+        </div>
+      </li>
+      <li>
+        <p>
+          ${habi.propriedade}
+        </p>
+      </li>
+    </ul>
         `;
 
     containerHabilidade.insertBefore(div, botaoAddHabilidade);
   });
 }
 
-atualizarHabilidades();
+//atualizarHabilidades();
 // Abrir habilidade ja criada, puxando info ela array- possivel editar essa array, caso edite, ao fechar, confere-se se ha algm alteração, se houver um alerta pergunta se quer alterar
