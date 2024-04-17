@@ -529,8 +529,8 @@ body::-webkit-scrollbar {
   grid-column: span 1;
   grid-row: span 1;
   padding: 0.3vw 0.5vw;
-  max-width: 600px;
-  max-height: 90px;
+  max-width: 45.4vw;
+  max-height: 6.8vw;
   box-sizing: border-box;
   display: flex;
   background-image: url(../assets/Habilidade-fundo.png);
@@ -584,7 +584,7 @@ body::-webkit-scrollbar {
       }
 
       p {
-        max-width: 480px;
+        max-width: 36.4vw;
         word-wrap: break-word;
       }
     }
