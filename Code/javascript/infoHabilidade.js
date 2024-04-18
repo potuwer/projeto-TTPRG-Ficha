@@ -1,5 +1,6 @@
 import { Habilidade, ListaHabilidades } from "./Habilidade.js";
 import { porImagemNaTela } from "./porImagemNaTela.js";
+import { deletarDiv } from "./botaoX.js";
 
 const body = document.querySelector("body");
 const containerHabilidade = document.querySelector(".container-habilidades");
@@ -26,7 +27,7 @@ botaoAddHabilidade.addEventListener("click", () => {
           <ul>
             <li>
               Tempo:
-              <input type="text" placeholder="Duração..." id="tempo"></input>
+              <input type="text" placeholder="Duração..." maxlength="10" id="tempo"></input>
             </li>
             <li>
               Custo:
@@ -90,7 +91,6 @@ botaoAddHabilidade.addEventListener("click", () => {
   let url;
   promiseUrlFoto.then((resultado) => {
     url = resultado;
-    console.log(url);
   });
 
   const botaoOK = popUp.querySelector(".ok");
@@ -109,7 +109,8 @@ botaoAddHabilidade.addEventListener("click", () => {
       !valorCusto ||
       !valorGanho ||
       !valorPropriedade ||
-      !valorDescricao
+      !valorDescricao ||
+      !valorFoto
     ) {
       alert("Por favor, preencha todos os campos.");
       return;
@@ -125,7 +126,6 @@ botaoAddHabilidade.addEventListener("click", () => {
       valorDescricao
     );
 
-    console.log(ListaHabilidades);
     popUp.remove();
     botaoAddHabilidade.disabled = false;
     botaoAddHabilidade.style.cursor = "pointer";
@@ -135,18 +135,12 @@ botaoAddHabilidade.addEventListener("click", () => {
 
   //Deletar pop up
   const botaoX = popUp.querySelector(".X");
-  botaoX.addEventListener("click", () => {
-    const resposta = confirm("Deseja descartar a criação dessa habilidade?");
-    if (resposta) {
-      popUp.remove();
-    }
-    botaoAddHabilidade.disabled = false;
-    botaoAddHabilidade.style.cursor = "pointer";
-  });
+  deletarDiv(botaoX, popUp, "Deseja descartar a criação dessa habilidade?");
+  botaoAddHabilidade.disabled = false;
+  botaoAddHabilidade.style.cursor = "pointer";
 });
 
 // Criar, no container-habilidade, mini habilidade puxando pela array
-
 function atualizarHabilidades() {
   const habilidadesCaixa = document.querySelectorAll("div.habilidade");
   habilidadesCaixa.forEach((caixa) => {
@@ -174,8 +168,119 @@ function atualizarHabilidades() {
         `;
 
     containerHabilidade.insertBefore(div, botaoAddHabilidade);
+    abrirHabilidade();
   });
 }
 
-//atualizarHabilidades();
+atualizarHabilidades();
 // Abrir habilidade ja criada, puxando info ela array- possivel editar essa array, caso edite, ao fechar, confere-se se ha algm alteração, se houver um alerta pergunta se quer alterar
+
+function abrirHabilidade() {
+  const habilidadesCaixa = document.querySelectorAll("div.habilidade");
+
+  habilidadesCaixa.forEach((caixaHabilidade) => {
+    caixaHabilidade.addEventListener("click", () => {
+      const { popUp, habi } = criarPopUpInfoHabi(caixaHabilidade);
+
+      body.insertAdjacentElement("afterbegin", popUp);
+
+      //Criação do botaoOK
+      const botaoOK = document.createElement("button");
+      botaoOK.setAttribute("style", "bottom: 5px; right: 150px;");
+      botaoOK.classList.add("ok");
+      botaoOK.innerHTML = `<img src="./assets/Icons/icon-ok.png"><p>OK</p>`;
+
+      //Add borda para as textarea caso elas nao tenham conteudo -- Add botao 'OK' caso algum atributo seja alterado
+      const texteareas = popUp.querySelectorAll("textarea");
+      const inputImg = popUp.querySelector(".container-foto-habilidade input");
+      const imagem = popUp.querySelector(".container-foto-habilidade img");
+
+      porImagemNaTela(inputImg, imagem);
+      inputImg.addEventListener("input", () => {
+        popUp.appendChild(botaoOK);
+      });
+
+      texteareas.forEach((input) => {
+        //Mudar borda dos input caso algum deles fique sem conteudo
+        input.style.border = "none";
+
+        input.addEventListener("input", () => {
+          if (input.value != "") {
+            input.style.border = "none";
+          } else {
+            input.style.border = "2px dotted #281a04";
+          }
+
+          //Função para fazer o botaoOK aparecer caso algum dos valores seja alterado
+          const valorNome = popUp.querySelector("#nome").value;
+          const valorTempo = popUp.querySelector("#tempo").value;
+          const valorCusto = popUp.querySelector("#custo").value;
+          const valorGanho = popUp.querySelector("#ganho").value;
+          const valorPropriedade = popUp.querySelector("#propriedade").value;
+          const valorDescricao = popUp.querySelector("#descricao").value;
+
+          if (
+            valorNome != habi.nome ||
+            valorTempo != habi.tempo ||
+            valorCusto != habi.custo ||
+            valorGanho != habi.ganho ||
+            valorPropriedade != habi.propriedade ||
+            valorDescricao != habi.descricao
+          ) {
+            popUp.appendChild(botaoOK);
+          } else {
+            botaoOK.remove();
+          }
+        });
+      });
+    });
+  });
+}
+
+function criarPopUpInfoHabi(caixaHabilidade) {
+  const popUp = document.createElement("div");
+  popUp.classList.add("fundo-verde");
+
+  const nomeHabi = caixaHabilidade.querySelector("span").innerText;
+
+  const habi = ListaHabilidades.find((habi) => habi.nome === nomeHabi);
+
+  popUp.innerHTML = `<div class="info-habilidade">
+      <button class="X"><img src="./assets/Icons/X.png" /></button>
+      <div class="principal">
+      <div class="container-foto-habilidade">
+        <img src="${habi.foto}" alt="Foto Habilidade" />
+        <label class="foto-habilidade"
+          ><input type="file" accept="image/*" />
+        </label>
+      </div>
+      <ul>
+        <li>
+          Tempo:
+          <textarea maxlength="10" id="tempo">${habi.tempo}</textarea>
+        </li>
+        <li>
+          Custo:
+          <textarea maxlength="5" id="custo">${habi.custo}</textarea>
+        </li>
+        <li>
+          Ganho:
+          <textarea maxlength="5" id="ganho">${habi.ganho}</textarea>
+        </li>
+      </ul>
+      </div>
+      <div class="propriedades">
+      <textarea class="habilidade-nome" spellcheck="false" maxlength="25" id="nome">${habi.nome}</textarea>
+      <hr />
+      <p>Propriedade:</p>
+        <textarea rows="4" maxlength="170" spellcheck="false" id="propriedade">${habi.propriedade}</textarea>
+      
+      <p>Descrição:</p>
+        <textarea rows="4" maxlength="170" spellcheck="false" id="descricao">${habi.descricao}</textarea>
+      </div>
+      <button class="remover" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
+    </div>
+</div>
+      `;
+  return { popUp, habi };
+}

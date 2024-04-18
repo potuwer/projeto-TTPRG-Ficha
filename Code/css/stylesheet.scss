@@ -537,6 +537,10 @@ body::-webkit-scrollbar {
   background-size: cover;
   border: 0.75vw solid #6bda37;
 
+  > * {
+    cursor: pointer;
+  }
+
   > img {
     display: inline-block;
     height: 100%;

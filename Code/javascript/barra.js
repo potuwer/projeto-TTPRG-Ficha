@@ -1,8 +1,8 @@
 import { fecharOnFocusOut } from "./focusOut.js";
+import { deletarDiv } from "./botaoX.js";
 
 //Cria um pop-up que pede o valor total da barra e o altera (futuramente imlementa mais utilidades pra barra)
 const ListaBotaoConfig = document.querySelectorAll(".barra button");
-
 ListaBotaoConfig.forEach((botao) =>
   botao.addEventListener("click", () => {
     const barra = botao.parentNode;
@@ -22,58 +22,43 @@ ListaBotaoConfig.forEach((botao) =>
       </li>
       <li><button>OK</button></li>
     </ul>`;
-
     barra.insertAdjacentElement("afterbegin", popUp);
 
     fecharOnFocusOut(popUp);
 
-    //Função para nao permitir que o input receba mais de 5 algarismos
+    const botaoX = popUp.querySelector(".X");
+    deletarDiv(botaoX, popUp);
+
     const input = popUp.querySelector("input");
-    input.addEventListener("input", () => {
-      if (input.value.length > 3) {
-        input.value = input.value.slice(0, 3);
+    LimitarInput(input, 3);
+
+    const botaoOK = popUp.querySelector("li button");
+    botaoOK.addEventListener("click", () => {
+      const spans = barra.querySelectorAll("span");
+      const inputValor = input.value;
+
+      if (
+        inputValor == 0 ||
+        inputValor == null ||
+        inputValor.includes(",") ||
+        inputValor.includes(".")
+      ) {
+        popUp.remove();
+        return;
       }
-    });
 
-    const botoesPopUp = popUp.querySelectorAll("button");
-
-    botoesPopUp.forEach((botao) => {
-      botao.addEventListener("click", () => {
-        if (botao.className == "X") {
-          popUp.remove();
-          return;
-        } else {
-          const spans = barra.querySelectorAll("span");
-          const inputValor = input.value;
-
-          if (
-            inputValor == 0 ||
-            inputValor == null ||
-            inputValor.includes(",") ||
-            inputValor.includes(".")
-          ) {
-            popUp.remove();
-            return;
-          }
-
-          spans.forEach((span) => {
-            span.innerHTML = inputValor;
-          });
-          popUp.remove();
-        }
+      spans.forEach((span) => {
+        span.innerHTML = inputValor;
       });
+      popUp.remove();
     });
   })
 );
 
 //Botões que alteram no valor temporario
 const listaComponentesBarra = document.querySelectorAll(".componente-barra");
-
 listaComponentesBarra.forEach((cBarra) => {
-  const botoesSujo = cBarra.querySelectorAll("button");
-  const botoes = Array.from(botoesSujo).filter((b) => {
-    return b.parentNode === cBarra;
-  });
+  const botoes = document.querySelectorAll(".componente-barra > button");
 
   botoes.forEach((botao) => {
     const cheia = cBarra.querySelector(".cheia");
@@ -99,8 +84,16 @@ listaComponentesBarra.forEach((cBarra) => {
   });
 });
 
-// Fazer largura da .cheia responsiva ao valor do teporario
+//Função para nao permitir que o input receba mais de 3 algarismos
+function LimitarInput(input, valor) {
+  input.addEventListener("input", () => {
+    if (input.value.length > valor) {
+      input.value = input.value.slice(0, valor);
+    }
+  });
+}
 
+// Fazer largura da .cheia responsiva ao valor do teporario
 function atualizarCheia(barra, valor, valorTotal) {
   let decimal = valor / valorTotal;
   decimal *= 100;

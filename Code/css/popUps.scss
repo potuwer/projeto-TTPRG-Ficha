@@ -201,12 +201,33 @@
           font-size: 25px;
           font-weight: 900;
           display: inline-flex;
+          justify-content: space-between;
+          width: 100%;
+          flex-wrap: nowrap;
+
+          &:first-child {
+            margin-top: 30px;
+          }
 
           input {
-            display: inline-flex;
             width: 100%;
             margin-left: 10px;
             border: none;
+            background: transparent;
+
+            color: #2f1e04;
+            font-family: Inter;
+            font-size: 20px;
+            font-weight: 400;
+          }
+
+          textarea {
+            resize: none;
+            width: 120px;
+            height: 60%;
+            margin-left: 10px;
+            box-sizing: border-box;
+            border: 2px dotted #281a04;
             background: transparent;
 
             color: #2f1e04;
