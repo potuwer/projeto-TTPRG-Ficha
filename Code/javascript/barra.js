@@ -58,7 +58,7 @@ ListaBotaoConfig.forEach((botao) =>
 //Botões que alteram no valor temporario
 const listaComponentesBarra = document.querySelectorAll(".componente-barra");
 listaComponentesBarra.forEach((cBarra) => {
-  const botoes = document.querySelectorAll(".componente-barra > button");
+  const botoes = cBarra.querySelectorAll(".componente-barra > button");
 
   botoes.forEach((botao) => {
     const cheia = cBarra.querySelector(".cheia");

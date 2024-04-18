@@ -282,6 +282,7 @@ function bordaSumir(input, comecaOff = false) {
   });
 }
 
+// Pear lista de inputs
 function criarListaInputs(popUp) {
   const valorNome = popUp.querySelector("#nome").value;
   const valorTempo = popUp.querySelector("#tempo").value;
