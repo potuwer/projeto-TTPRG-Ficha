@@ -11,7 +11,6 @@ const botaoAddHabilidade = containerHabilidade.querySelector(".add-habilidade");
 botaoAddHabilidade.addEventListener("click", () => {
   botaoAddHabilidade.disabled = true;
   botaoAddHabilidade.style.cursor = "no-drop";
-
   const popUp = document.createElement("div");
   popUp.classList.add("fundo-verde");
   popUp.setAttribute("tabindex", "0");
@@ -20,7 +19,7 @@ botaoAddHabilidade.addEventListener("click", () => {
           <button class="X"><img src="./assets/Icons/X.png" /></button>
           <div class="principal">
           <div class="container-foto-habilidade">
-            <img src="/img/Habilidade 1.png" alt="Foto Habilidade" />
+            <img src="./assets/Icons/icon-upload-habilidade.jpg" alt="Foto Habilidade" />
             <label class="foto-habilidade"
               ><input type="file" accept="image/*" />
             </label>
