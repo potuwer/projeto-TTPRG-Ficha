@@ -240,13 +240,16 @@
   color: #281a04;
   text-align: center;
   font-family: "Metal Mania";
-  font-size: 60px;
+  font-size: 60px !important;
   font-weight: 400;
   height: 30px;
   width: 100%;
   padding: 0%;
   box-sizing: border-box;
   border: 2px dotted #281a04;
+}
+.fundo-verde .info-habilidade .propriedades .habilidade-nome::-webkit-scrollbar {
+  width: 0px;
 }
 .fundo-verde .info-habilidade .propriedades hr {
   width: 90%;
@@ -265,7 +268,7 @@
   font-weight: 900;
   display: block;
 }
-.fundo-verde .info-habilidade .propriedades textarea {
+.fundo-verde .info-habilidade .propriedades > textarea {
   resize: none;
   background: transparent;
   flex-grow: 1;
@@ -274,7 +277,7 @@
   border: 2px dotted #281a04;
   color: #2f1e04;
   font-family: Inter;
-  font-size: 15px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

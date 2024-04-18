@@ -43,10 +43,10 @@ botaoAddHabilidade.addEventListener("click", () => {
           <textarea class="habilidade-nome" spellcheck="false" maxlength="25"></textarea>
           <hr />
           <p>Propriedade:</p>
-            <textarea rows="4" maxlength="170" spellcheck="false" id="propriedade"></textarea>
+            <textarea rows="4" maxlength="165" spellcheck="false" id="propriedade"></textarea>
           
           <p>Descrição:</p>
-            <textarea rows="4" maxlength="170" spellcheck="false" id="descricao"></textarea>
+            <textarea rows="4" maxlength="165" spellcheck="false" id="descricao"></textarea>
           </div>
           <button class="ok" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/icon-ok.png"><p>OK</p></button>
         </div>
@@ -116,7 +116,7 @@ botaoAddHabilidade.addEventListener("click", () => {
       return;
     }
 
-    const h2 = new Habilidade(
+    new Habilidade(
       valorNome,
       valorFoto,
       valorTempo,
@@ -171,10 +171,9 @@ function atualizarHabilidades() {
     abrirHabilidade();
   });
 }
-
 atualizarHabilidades();
-// Abrir habilidade ja criada, puxando info ela array- possivel editar essa array, caso edite, ao fechar, confere-se se ha algm alteração, se houver um alerta pergunta se quer alterar
 
+//Cria pop up da habilidade quando clica no card dela
 function abrirHabilidade() {
   const habilidadesCaixa = document.querySelectorAll("div.habilidade");
 
@@ -201,42 +200,23 @@ function abrirHabilidade() {
       });
 
       texteareas.forEach((input) => {
-        //Mudar borda dos input caso algum deles fique sem conteudo
-        input.style.border = "none";
-
-        input.addEventListener("input", () => {
-          if (input.value != "") {
-            input.style.border = "none";
-          } else {
-            input.style.border = "2px dotted #281a04";
-          }
-
-          //Função para fazer o botaoOK aparecer caso algum dos valores seja alterado
-          const valorNome = popUp.querySelector("#nome").value;
-          const valorTempo = popUp.querySelector("#tempo").value;
-          const valorCusto = popUp.querySelector("#custo").value;
-          const valorGanho = popUp.querySelector("#ganho").value;
-          const valorPropriedade = popUp.querySelector("#propriedade").value;
-          const valorDescricao = popUp.querySelector("#descricao").value;
-
-          if (
-            valorNome != habi.nome ||
-            valorTempo != habi.tempo ||
-            valorCusto != habi.custo ||
-            valorGanho != habi.ganho ||
-            valorPropriedade != habi.propriedade ||
-            valorDescricao != habi.descricao
-          ) {
-            popUp.appendChild(botaoOK);
-          } else {
-            botaoOK.remove();
-          }
-        });
+        bordaSumir(input, true);
+        const listaInputs = criarListaInputs(popUp);
+        const verificador = verificarAlteracaoInput(
+          popUp,
+          habi,
+          botaoOK,
+          listaInputs
+        );
+        if (verificador) {
+          atualizarListaHabilidade(botaoOK, habi, listaInputs, imagem, popUp);
+        }
       });
     });
   });
 }
 
+//Função que cria o pop up InfoHabilidade ao clicar num card
 function criarPopUpInfoHabi(caixaHabilidade) {
   const popUp = document.createElement("div");
   popUp.classList.add("fundo-verde");
@@ -273,14 +253,85 @@ function criarPopUpInfoHabi(caixaHabilidade) {
       <textarea class="habilidade-nome" spellcheck="false" maxlength="25" id="nome">${habi.nome}</textarea>
       <hr />
       <p>Propriedade:</p>
-        <textarea rows="4" maxlength="170" spellcheck="false" id="propriedade">${habi.propriedade}</textarea>
+        <textarea rows="4" maxlength="165" spellcheck="false" id="propriedade">${habi.propriedade}</textarea>
       
       <p>Descrição:</p>
-        <textarea rows="4" maxlength="170" spellcheck="false" id="descricao">${habi.descricao}</textarea>
+        <textarea rows="4" maxlength="165" spellcheck="false" id="descricao">${habi.descricao}</textarea>
       </div>
       <button class="remover" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
     </div>
 </div>
       `;
+
+  const botaoX = popUp.querySelector(".X");
+  deletarDiv(botaoX, popUp);
   return { popUp, habi };
+}
+
+//Mudar borda dos input caso algum deles fique sem conteudo
+function bordaSumir(input, comecaOff = false) {
+  if (comecaOff) {
+    input.style.border = "none";
+  }
+  input.addEventListener("input", () => {
+    if (input.value != "") {
+      input.style.border = "none";
+    } else {
+      input.style.border = "2px dotted #281a04";
+    }
+  });
+}
+
+function criarListaInputs(popUp) {
+  const valorNome = popUp.querySelector("#nome").value;
+  const valorTempo = popUp.querySelector("#tempo").value;
+  const valorCusto = popUp.querySelector("#custo").value;
+  const valorGanho = popUp.querySelector("#ganho").value;
+  const valorPropriedade = popUp.querySelector("#propriedade").value;
+  const valorDescricao = popUp.querySelector("#descricao").value;
+
+  let listaDevolver = [];
+
+  return (listaDevolver = [
+    valorNome,
+    valorTempo,
+    valorCusto,
+    valorGanho,
+    valorPropriedade,
+    valorDescricao,
+  ]);
+}
+
+//Função para fazer o botaoOK aparecer caso algum dos valores seja alterado
+function verificarAlteracaoInput(popUp, habi, botaoOK, lista) {
+  if (
+    lista[0] != habi.nome ||
+    lista[1] != habi.tempo ||
+    lista[2] != habi.custo ||
+    lista[3] != habi.ganho ||
+    lista[4] != habi.propriedade ||
+    lista[5] != habi.descricao
+  ) {
+    popUp.appendChild(botaoOK);
+    return true;
+  } else {
+    botaoOK.remove();
+    return false;
+  }
+}
+
+//Função que atualiza a ListaHabilidade quando o inofhabilidae é alterado e confimado(botaoOK)
+function atualizarListaHabilidade(btnOk, habi, lista, imagem, popUp) {
+  btnOk.addEventListener("click", () => {
+    habi.foto = imagem.src;
+    habi.nome = lista[0];
+    habi.tempo = lista[1];
+    habi.custo = lista[2];
+    habi.ganho = lista[3];
+    habi.propriedade = lista[4];
+    habi.descricao = lista[5];
+
+    atualizarHabilidades();
+    popUp.remove();
+  });
 }
