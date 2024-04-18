@@ -221,7 +221,7 @@
   height: 60%;
   margin-left: 10px;
   box-sizing: border-box;
-  border: 2px dotted #281a04;
+  border: 1px dashed #281a04;
   background: transparent;
   color: #2f1e04;
   font-family: Inter;
@@ -246,7 +246,7 @@
   width: 100%;
   padding: 0%;
   box-sizing: border-box;
-  border: 2px dotted #281a04;
+  border: 1px dashed #281a04;
 }
 .fundo-verde .info-habilidade .propriedades .habilidade-nome::-webkit-scrollbar {
   width: 0px;
@@ -274,7 +274,7 @@
   flex-grow: 1;
   width: 100%;
   box-sizing: border-box;
-  border: 2px dotted #281a04;
+  border: 1px dashed #281a04;
   color: #2f1e04;
   font-family: Inter;
   font-size: 20px;

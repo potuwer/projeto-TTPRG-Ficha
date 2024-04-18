@@ -1,6 +1,7 @@
 import { Habilidade, ListaHabilidades } from "./Habilidade.js";
 import { porImagemNaTela } from "./porImagemNaTela.js";
 import { deletarDiv } from "./botaoX.js";
+import { bordaSumir } from "./bordaSumir.js";
 
 const body = document.querySelector("body");
 const containerHabilidade = document.querySelector(".container-habilidades");
@@ -64,17 +65,9 @@ botaoAddHabilidade.addEventListener("click", () => {
     }
   });
 
-  //Para adicionar uma borda nas textearea, caso nao haja nada dentro (FUTURAMENTE, adicionar isso para tudo que é editavel no site)
+  //Para adicionar uma borda nas textearea
   const texteareas = popUp.querySelectorAll("textarea");
-  texteareas.forEach((input) => {
-    input.addEventListener("input", () => {
-      if (input.value != "") {
-        input.style.border = "none";
-      } else {
-        input.style.border = "2px dotted #281a04";
-      }
-    });
-  });
+  bordaSumir(texteareas, "#281a04");
 
   //Tornar o foto habilidade interativo pra upload de imagens
   const inputImagem = popUp.querySelector(".container-foto-habilidade input");
@@ -189,7 +182,6 @@ function abrirHabilidade() {
       botaoOK.classList.add("ok");
       botaoOK.innerHTML = `<img src="./assets/Icons/icon-ok.png"><p>OK</p>`;
 
-      //Add borda para as textarea caso elas nao tenham conteudo -- Add botao 'OK' caso algum atributo seja alterado
       const texteareas = popUp.querySelectorAll("textarea");
       const inputImg = popUp.querySelector(".container-foto-habilidade input");
       const imagem = popUp.querySelector(".container-foto-habilidade img");
@@ -199,19 +191,18 @@ function abrirHabilidade() {
         popUp.appendChild(botaoOK);
       });
 
-      texteareas.forEach((input) => {
-        bordaSumir(input, true);
-        const listaInputs = criarListaInputs(popUp);
-        const verificador = verificarAlteracaoInput(
-          popUp,
-          habi,
-          botaoOK,
-          listaInputs
-        );
-        if (verificador) {
-          atualizarListaHabilidade(botaoOK, habi, listaInputs, imagem, popUp);
-        }
-      });
+      bordaSumir(texteareas, "#281a04", true);
+
+      const listaInputs = criarListaInputs(popUp);
+      const verificador = verificarAlteracaoInput(
+        popUp,
+        habi,
+        botaoOK,
+        listaInputs
+      );
+      if (verificador) {
+        atualizarListaHabilidade(botaoOK, habi, listaInputs, imagem, popUp);
+      }
     });
   });
 }
@@ -266,20 +257,6 @@ function criarPopUpInfoHabi(caixaHabilidade) {
   const botaoX = popUp.querySelector(".X");
   deletarDiv(botaoX, popUp);
   return { popUp, habi };
-}
-
-//Mudar borda dos input caso algum deles fique sem conteudo
-function bordaSumir(input, comecaOff = false) {
-  if (comecaOff) {
-    input.style.border = "none";
-  }
-  input.addEventListener("input", () => {
-    if (input.value != "") {
-      input.style.border = "none";
-    } else {
-      input.style.border = "2px dotted #281a04";
-    }
-  });
 }
 
 // Pear lista de inputs

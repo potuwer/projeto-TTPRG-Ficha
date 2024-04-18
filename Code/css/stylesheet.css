@@ -5,7 +5,6 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
-
 body::-webkit-scrollbar {
   /*Deixando scrollbar lateral invisivel*/
   width: 0;
@@ -65,9 +64,18 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
 }
-
 .container-foto-de-perfil input {
   display: none;
+}
+.container-foto-de-perfil img {
+  width: 115%;
+  height: 121%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  background-size: cover;
+  -webkit-clip-path: polygon(22% 9%, 78% 9%, 85% 14%, 94% 14%, 93% 88%, 89% 90%, 85% 94%, 15% 94%, 12% 91%, 8% 87%, 7% 13%, 14% 13%);
+          clip-path: polygon(22% 9%, 78% 9%, 85% 14%, 94% 14%, 93% 88%, 89% 90%, 85% 94%, 15% 94%, 12% 91%, 8% 87%, 7% 13%, 14% 13%);
 }
 
 .foto-de-perfil {
@@ -80,17 +88,6 @@ body::-webkit-scrollbar {
   cursor: pointer;
   z-index: 1;
   position: absolute;
-}
-
-.container-foto-de-perfil img {
-  width: 115%;
-  aspect-ratio: 83/111;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  background-size: cover;
-  -webkit-clip-path: polygon(22% 9%, 78% 9%, 85% 14%, 94% 14%, 93% 88%, 89% 90%, 85% 94%, 15% 94%, 12% 91%, 8% 87%, 7% 13%, 14% 13%);
-          clip-path: polygon(22% 9%, 78% 9%, 85% 14%, 94% 14%, 93% 88%, 89% 90%, 85% 94%, 15% 94%, 12% 91%, 8% 87%, 7% 13%, 14% 13%);
 }
 
 .borda-foto-de-perfil {
@@ -115,54 +112,45 @@ body::-webkit-scrollbar {
   align-self: center;
   justify-self: center;
 }
-
-.tamanho-nome {
+.container-nome .tamanho-nome {
   display: inline-block;
   height: 6.6vw;
   position: relative;
 }
-
-.tamanho-nome p {
+.container-nome .tamanho-nome textarea {
+  background: transparent;
+  resize: none;
+  text-align: left;
   max-width: 38vw;
   height: 100%;
   padding-right: 0.75vw;
-  overflow: hidden;
+  overflow-y: scroll;
   color: #bf8450;
   font-family: "Ingrid Darling";
   font-size: 4.5vw;
   line-height: 1.5;
 }
-
-.tamanho-nome p::first-line {
+.container-nome .tamanho-nome textarea::first-line {
   line-height: normal;
 }
-
-.tamanho-nome hr {
-  width: 97%;
-  border: 0.075vw solid #bf8450;
-  position: absolute;
-  bottom: 2.3vw;
-}
-
-.tamanho-nome p:hover {
-  /*Fazer scrollbar aparecer quando Hover*/
-  overflow-y: scroll;
-}
-
-.tamanho-nome p::-webkit-scrollbar {
+.container-nome .tamanho-nome textarea::-webkit-scrollbar {
   /*Largura da scrollbar*/
   width: 0.6vw;
 }
-
-.tamanho-nome p::-webkit-scrollbar-thumb {
+.container-nome .tamanho-nome textarea::-webkit-scrollbar-thumb {
   /*Thumb da scroolbar*/
   background-color: #bf8450;
   border-radius: 0.75vw;
 }
-
-.tamanho-nome p::-webkit-scrollbar-track {
+.container-nome .tamanho-nome textarea::-webkit-scrollbar-track {
   /*fundo da scroolbar invisivel*/
   background: none;
+}
+.container-nome .tamanho-nome hr {
+  width: 93%;
+  border: 0.075vw solid #bf8450;
+  position: absolute;
+  bottom: 2.3vw;
 }
 
 /*                                           BARRAS */
@@ -182,7 +170,6 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: space-between;
 }
-
 .componente-barra > button {
   cursor: pointer;
   display: inline-block;
@@ -209,11 +196,9 @@ body::-webkit-scrollbar {
   display: grid;
   position: relative;
 }
-
 .barra > button {
   display: none;
 }
-
 .barra:hover > button {
   display: block;
   border: 0.075vw solid rgba(0, 0, 0, 0.7);
@@ -250,7 +235,6 @@ body::-webkit-scrollbar {
   background-image: url(../assets/Barras/Cheia-RED.png);
   color: #520000;
 }
-
 .c-red span:first-child {
   text-indent: 0.75vw;
 }
@@ -264,7 +248,6 @@ body::-webkit-scrollbar {
   color: #000552;
   background-image: url(../assets/Barras/Cheia-BLUE.png);
 }
-
 .c-blue span:first-child {
   text-indent: 0.75vw;
 }
@@ -278,23 +261,40 @@ body::-webkit-scrollbar {
   height: 10.85vw;
   background-image: url(../assets/Atributos-fundo.png);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 33, 3% 33, 3% 33, 3%;
   border: 0.075vw solid #091c4e;
   box-sizing: border-box;
 }
-
-.container-atributos p {
-  grid-column: span 1;
-  grid-row: span 1;
+.container-atributos div {
+  width: 100%;
+  height: 100%;
   border: 0.2vw solid #091c4e;
   box-sizing: border-box;
-  text-align: left;
-  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 0.3vw;
+}
+.container-atributos div p {
+  grid-column: span 1;
+  grid-row: span 1;
   color: #091c4e;
   font-family: "Inknut Antiqua";
-  font-size: 1.15vw;
+  font-size: 1vw;
   font-weight: 900;
+}
+.container-atributos div input {
+  min-width: 0.5vw;
+  width: 100%;
+  background: transparent;
+  text-align: center;
+  height: 50%;
+  resize: none;
+  color: #091c4e;
+  font-family: "Koh Santepheap";
+  font-weight: 800;
+  font-size: 1vw;
 }
 
 /*                                           DESCRIÇÃO-NOTAS */
@@ -432,7 +432,6 @@ body::-webkit-scrollbar {
   border: 0.3vw solid #f00;
   box-sizing: border-box;
 }
-
 .pericia .titulo {
   margin-top: 0.15vw;
   height: 1.6vw;
@@ -444,30 +443,37 @@ body::-webkit-scrollbar {
   font-size: 0.9vw;
   font-weight: 700;
 }
-
 .pericia .titulo hr {
   flex-grow: 1;
   height: 0.075vw;
   background-color: #fff;
 }
-
 .pericia ul {
   height: calc(100% - 2.1vw);
   margin: 0.38vw 0.75vw 0px 0.75vw;
   overflow-y: scroll;
   list-style: none;
 }
-
-.pericia ul::-webkit-scrollbar {
-  width: 0;
-}
-
-.pericia li {
+.pericia ul li {
   display: flex;
   justify-content: space-between;
   color: #fff;
   font-family: "Marcellus SC";
   font-size: 0.75vw;
+}
+.pericia ul li input {
+  color: #fff;
+  font-family: "Marcellus SC";
+  font-size: 0.75vw;
+  box-sizing: border-box;
+  display: inline;
+  background: transparent;
+  width: 30%;
+  height: 11px;
+  text-align: right;
+}
+.pericia ul::-webkit-scrollbar {
+  width: 0;
 }
 
 /*                                           HABILIDADES*/
