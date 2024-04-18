@@ -193,16 +193,7 @@ function abrirHabilidade() {
 
       bordaSumir(texteareas, "#281a04", true);
 
-      const listaInputs = criarListaInputs(popUp);
-      const verificador = verificarAlteracaoInput(
-        popUp,
-        habi,
-        botaoOK,
-        listaInputs
-      );
-      if (verificador) {
-        atualizarListaHabilidade(botaoOK, habi, listaInputs, imagem, popUp);
-      }
+      verificarAlteracaoInput(popUp, habi, botaoOK, imagem);
     });
   });
 }
@@ -254,9 +245,24 @@ function criarPopUpInfoHabi(caixaHabilidade) {
 </div>
       `;
 
+  const btnRemover = popUp.querySelector(".remover");
+  removerLista(btnRemover, nomeHabi, popUp);
+
   const botaoX = popUp.querySelector(".X");
   deletarDiv(botaoX, popUp);
   return { popUp, habi };
+}
+
+function removerLista(btn, nome, popUp) {
+  btn.addEventListener("click", () => {
+    const resposta = confirm("Deseja deletar essa habilidade?");
+    if (resposta) {
+      const indice = ListaHabilidades.findIndex((habi) => habi.nome === nome);
+      indice !== -1 ? ListaHabilidades.splice(indice, 1) : undefined;
+      atualizarHabilidades();
+      popUp.remove();
+    }
+  });
 }
 
 // Pear lista de inputs
@@ -281,25 +287,34 @@ function criarListaInputs(popUp) {
 }
 
 //Função para fazer o botaoOK aparecer caso algum dos valores seja alterado
-function verificarAlteracaoInput(popUp, habi, botaoOK, lista) {
-  if (
-    lista[0] != habi.nome ||
-    lista[1] != habi.tempo ||
-    lista[2] != habi.custo ||
-    lista[3] != habi.ganho ||
-    lista[4] != habi.propriedade ||
-    lista[5] != habi.descricao
-  ) {
-    popUp.appendChild(botaoOK);
-    return true;
-  } else {
-    botaoOK.remove();
-    return false;
-  }
+function verificarAlteracaoInput(popUp, habi, botaoOK, image) {
+  const inputs = popUp.querySelectorAll("input, textarea");
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      const lista = criarListaInputs(popUp);
+
+      if (
+        lista[0] != habi.nome ||
+        lista[1] != habi.tempo ||
+        lista[2] != habi.custo ||
+        lista[3] != habi.ganho ||
+        lista[4] != habi.propriedade ||
+        lista[5] != habi.descricao
+      ) {
+        popUp.appendChild(botaoOK);
+        atualizarItemNaArray(botaoOK, habi, image, popUp);
+      } else {
+        botaoOK.remove();
+      }
+    });
+  });
 }
 
-//Função que atualiza a ListaHabilidade quando o inofhabilidae é alterado e confimado(botaoOK)
-function atualizarListaHabilidade(btnOk, habi, lista, imagem, popUp) {
+//Função que atualiza os atributos de um item na ListaHabilidade (botaoOK)
+function atualizarItemNaArray(btnOk, habi, imagem, popUp) {
+  const lista = criarListaInputs(popUp);
+
   btnOk.addEventListener("click", () => {
     habi.foto = imagem.src;
     habi.nome = lista[0];
