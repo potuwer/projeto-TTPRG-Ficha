@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>teste</title>
-    <link rel="stylesheet" href="./css/popUps.css" />
+    <link rel="stylesheet" href="./teste.css" />
     <link rel="stylesheet" href="./css/reset.css">
     <style>
       body {
@@ -16,6 +16,9 @@
       }
       body > section {
         position: relative;
+        background-color: aliceblue;
+        width: 50%;
+        height: 50%;
       }
     </style>
 
@@ -35,56 +38,8 @@
   </head>
   <body>
     <section>
-      <div class="fundo-verde">
-        <div class="info-habilidade">
-          <button class="X"><img src="./assets/Icons/X.png" /></button>
-          <div class="principal">
-          <div class="container-foto-habilidade">
-            <img src="/img/Habilidade 1.png" alt="Foto Habilidade" />
-            <label class="foto-habilidade"
-              ><input type="file" accept="image/*" />
-            </label>
-          </div>
-          <ul>
-            <li>
-              Tempo:
-              <input type="text" placeholder="Duração..."></input>
-            </li>
-            <li>
-              Custo:
-              <input type="text" placeholder="Preço..."></input>
-            </li>
-            <li>
-              Ganho:
-              <input type="text" placeholder="Ganha..."></input>
-            </li>
-          </ul>
-          </div>
-          <div class="propriedades">
-          <textarea class="habilidade-nome" spellcheck="false" maxlength="34"></textarea>
-          <hr />
-          <p>Propriedade:</p>
-            <textarea rows="4" maxlength="196" spellcheck="false"></textarea>
-          
-          <p>Descrição:</p>
-            <textarea rows="4" maxlength="196" spellcheck="false"></textarea>
-          </div>
-          <button class="ok" style="bottom: 5px; right: 150px;"><img src="./assets/Icons/icon-ok.png"><p>OK</p></button>
-          <button class="remover" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
-        </div>
-        <script>
-        const texteareas = document.querySelectorAll("textarea")
-
-        texteareas.forEach((input) => {
-          input.addEventListener("input", () => {
-          if (input.value != ""){
-            input.style.border = "none";
-          } else {
-            input.style.border = "2px dotted #281a04"
-          }
-        })
-        })
-        </script>
+      <div class="altura-peso">
+        <span>P:</span><input maxlength="3" value="70" /><span>kg | A:</span><input maxlength="4" value="1,80" />
       </div>
     </section>
   </body>

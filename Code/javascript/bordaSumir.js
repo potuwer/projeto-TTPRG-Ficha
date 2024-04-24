@@ -22,3 +22,6 @@ bordaSumir(listaAtributos, "#091c4e");
 
 const listaPericias = document.querySelectorAll(".container-pericias input");
 bordaSumir(listaPericias, "#F00");
+
+const listaCorpo = document.querySelectorAll(".altura-peso input")
+bordaSumir(listaCorpo, "#281a04")

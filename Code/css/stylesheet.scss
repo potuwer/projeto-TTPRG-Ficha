@@ -410,49 +410,74 @@ body {
   justify-self: end;
   position: relative;
   display: flex;
-}
 
-.container-foto-corpo input {
-  display: none;
-}
+  & > label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
 
-.container-foto-corpo label {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  cursor: pointer;
-}
+    & > input {
+      display: none;
+    }
+  }
 
-.container-foto-corpo img {
-  width: auto;
-  height: 100%;
-  aspect-ratio: 7/12;
-  border: 0.6vw solid transparent;
-  border-image: url(../assets/FotoCorpo-borda.png);
-  border-image-slice: 11 14 11 14;
-  border-image-width: 0.6vw 0.6vw 0.6vw 0.6vw;
-  border-image-repeat: stretch stretch;
-  box-sizing: border-box;
-  object-fit: cover;
+  img {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 7/12;
+    border: 0.6vw solid transparent;
+    border-image: url(../assets/FotoCorpo-borda.png);
+    border-image-slice: 11 14 11 14;
+    border-image-width: 0.6vw 0.6vw 0.6vw 0.6vw;
+    border-image-repeat: stretch stretch;
+    box-sizing: border-box;
+    object-fit: cover;
+  }
 }
 
 .altura-peso {
-  display: flex;
-  min-width: 10.5vw;
-  min-height: 1.3vw;
-  flex-direction: row;
+  width: 10.5vw;
+  height: 1.3vw;
   border-radius: 0 0 1.14vw 1.14vw;
   border: 0.25vw solid #7e6a4a;
   background-image: url(../assets/FotoCorpo-pesoaltura-fundo.png);
+
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  text-align: center;
-  font-family: "Garamond";
-  font-weight: 600;
-  font-size: 1.14vw;
+
   position: absolute;
   left: 23%;
   top: 100%;
+
+  span {
+    display: inline-block;
+
+    font-family: "Garamond";
+    font-weight: 600;
+    font-size: 1.14vw;
+  }
+
+  input {
+    display: inline-block;
+    text-align: right;
+
+    font-family: "Garamond";
+    font-weight: 600;
+    font-size: 1.14vw;
+
+    &.first-input {
+      width: 15%;
+      background-color: transparent;
+    }
+
+    &.last-input {
+      background-color: transparent;
+      width: 20%;
+    }
+  }
 }
 
 /*                                           PERÍCIAS */

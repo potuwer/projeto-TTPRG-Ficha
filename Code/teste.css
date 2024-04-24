@@ -1,0 +1,27 @@
+.altura-peso {
+    display: flex;
+    flex-direction: row;
+  width: 10.5vw;
+  height: 1.3vw;
+  border-radius: 0 0 1.14vw 1.14vw;
+  border: 0.25vw solid #7e6a4a;
+  background-color: burlywood;
+  font-family: "Garamond";
+  font-weight: 600;
+  font-size: 1.14vw;
+}
+span {
+  display: inline-block;
+  background-color: blue;
+}
+
+input {
+  flex-grow: 1;
+  display: inline-block;
+  background: red;
+  text-align: right;
+
+  font-family: "Garamond";
+  font-weight: 600;
+  font-size: 1.14vw;
+}

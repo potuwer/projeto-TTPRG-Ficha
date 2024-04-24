@@ -1,4 +1,4 @@
-import { Habilidade, ListaHabilidades } from "./Habilidade.js";
+import { Habilidade, ListaHabilidades } from "./types/Habilidade.js";
 import { porImagemNaTela } from "./porImagemNaTela.js";
 import { deletarDiv } from "./botaoX.js";
 import { bordaSumir } from "./bordaSumir.js";
