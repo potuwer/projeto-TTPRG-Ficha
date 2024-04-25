@@ -13,8 +13,8 @@
   O jogador pode tomar adicionar, editar e remover habilidades/poderes que seu personagem tem. Essas habilidades guardam informações como: tempo de duração, o que consomem ao serem usadas, etc</li>
   <li><h3>Inventário:</h3>
   Os jogadores terão acesso há um inventário. Onde podem adicionar e remover itens, previamente criados pelo mestre, à ele.</li>
-  <li><h3>Armazenamento local das informações dos personagens:
-  Todas essas informações editáveis, fotos, habilidades, itens e suas quantidades serão armazenadas no localStorage do usuário. Futuramente, com o avanço do projeto essas informações serão guardadas num banco de dados.</h3></li>
+  <li><h3>Armazenamento local das informações dos personagens:</h3>
+  Todas essas informações editáveis, fotos, habilidades, itens e suas quantidades serão armazenadas no localStorage do usuário. Futuramente, com o avanço do projeto essas informações serão guardadas num banco de dados.</li>
 </ol>
 
 ## Tasklist
