@@ -7,14 +7,14 @@ function adicionarItem(i) {
 export class Item {
   nome;
   foto;
-  prop;
+  poder;
   tempo;
   desc;
 
-  constructor(nome, foto, prop, tempo, desc) {
+  constructor(nome, foto, poder, tempo, desc) {
     this.nome = nome;
     this.foto = foto;
-    this.prop = prop;
+    this.poder = poder;
     this.tempo = tempo;
     this.desc = desc;
     adicionarItem(this);

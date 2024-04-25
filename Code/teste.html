@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>teste</title>
     <link rel="stylesheet" href="./teste.css" />
-    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css" />
     <style>
       body {
         height: 100vh;
@@ -16,9 +16,9 @@
       }
       body > section {
         position: relative;
-        background-color: aliceblue;
-        width: 50%;
-        height: 50%;
+        background-color: black;
+        width: 90%;
+        height: 90%;
       }
     </style>
 
@@ -32,15 +32,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <section>
-      <div class="altura-peso">
-        <span>P:</span><input maxlength="3" value="70" /><span>kg | A:</span><input maxlength="4" value="1,80" />
-      </div>
+      <form class="form-item">
+        <ul class="container1">
+          <li>
+            <label><input type="file" accept="image/*" id="foto" /></label>
+          </li>
+          <li><span>Poder:</span><input id="poder" maxlength="12" /></li>
+          <li><span>Tempo:</span><input id="tempo" maxlength="12" /></li>
+        </ul>
+        <div class="container2">
+          <textarea id="nome" rows="2" maxlength="20"></textarea>
+          <span>Descrição:</span
+          ><textarea id="desc" rows="2" maxlength="10"></textarea>
+        </div>
+      </form>
     </section>
   </body>
 </html>
