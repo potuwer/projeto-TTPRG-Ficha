@@ -38,20 +38,21 @@
   </head>
   <body>
     <section>
-      <form class="form-item">
+      <div class="popUpItem">
         <ul class="container1">
           <li>
-            <label><input type="file" accept="image/*" id="foto" /></label>
+            <div><img src="/img/cura.png" alt="Foto do Item" /></label>
           </li>
-          <li><span>Poder:</span><input id="poder" maxlength="12" /></li>
-          <li><span>Tempo:</span><input id="tempo" maxlength="12" /></li>
+          <li>
+            <span>Quant:<p id="quant">1</p></span>
+            <span>Peso:<p id="peso">2kg</p></span>
+          </li>
         </ul>
         <div class="container2">
-          <textarea id="nome" rows="2" maxlength="20"></textarea>
-          <span>Descrição:</span
-          ><textarea id="desc" rows="2" maxlength="10"></textarea>
+          <p id="nome">Poção de Cura</p>
+          <span>Descrição:<p id="desc">Uma poção de cura básica. Tem um gosto refrescante, mas meio ácido. Garante um D8 + 2 de HP.</p></span>
         </div>
-      </form>
+      </div>
     </section>
   </body>
 </html>

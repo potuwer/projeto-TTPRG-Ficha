@@ -299,3 +299,16 @@
     }
   }
 }
+
+// LOJA INVENTARIOA
+
+.loja {
+  height: 700px;
+  width: 1400px;
+  background-image: url("../assets/loja-fundo.png");
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  
+}
