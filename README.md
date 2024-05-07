@@ -1,6 +1,6 @@
 # PROJETO FICHA TTRPG ONLINE
 
-> Esse é um projeto pessoal desenvolvido interiamente Arthur Bizordi.
+> Esse é um projeto pessoal desenvolvido interiamente por Arthur Bizordi.
 > O objetivo desse projeto é auxiliar em sessões de TTRPG como uma ficha online customizável.
 > > [Figma do projeto](https://www.figma.com/file/n9zXFlNAgvmvwz96YEFDI3/Rpg?type=design&node-id=0%3A1&mode=dev)
 
