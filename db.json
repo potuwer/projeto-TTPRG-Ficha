@@ -1,3 +1,11 @@
-{
-    "oii": 12
+{ "itens": [
+    {
+        "nome": "aa",
+        "foto": "aa",
+        "peso": "aa",
+        "quant": "aa",
+        "desc": "aa"
+    }
+]
+
 }

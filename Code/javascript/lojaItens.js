@@ -13,4 +13,3 @@ function abrirMercado() {
     containerInventario.insertAdjacentElement("afterbegin", loja)
     fecharOnFocusOut(loja)
 }
-
