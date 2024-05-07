@@ -1,7 +1,7 @@
 import { Habilidade, ListaHabilidades } from "./types/Habilidade.js";
-import { porImagemNaTela } from "./porImagemNaTela.js";
-import { deletarDiv } from "./botaoX.js";
-import { bordaSumir } from "./bordaSumir.js";
+import { porImagemNaTela } from "./utils/porImagemNaTela.js";
+import { deletarDiv } from "./utils/botaoX.js";
+import { bordaSumir } from "./utils/bordaSumir.js";
 
 const body = document.querySelector("body");
 const containerHabilidade = document.querySelector(".container-habilidades");
@@ -11,7 +11,7 @@ const botaoAddHabilidade = containerHabilidade.querySelector(".add-habilidade");
 botaoAddHabilidade.addEventListener("click", () => {
   botaoAddHabilidade.disabled = true;
   botaoAddHabilidade.style.cursor = "no-drop";
-  const popUp = document.createElement("div");
+  const popUp = document.createElement("form");
   popUp.classList.add("fundo-verde");
   popUp.setAttribute("tabindex", "0");
   popUp.innerHTML = `
@@ -20,33 +20,33 @@ botaoAddHabilidade.addEventListener("click", () => {
           <div class="principal">
           <div class="container-foto-habilidade">
             <img src="./assets/Icons/icon-upload-habilidade.jpg" alt="Foto Habilidade" />
-            <label class="foto-habilidade"
-              ><input type="file" accept="image/*" />
+            <label class="foto-habilidade">
+              <input required type="file" accept="image/*" />
             </label>
           </div>
           <ul>
             <li>
               Tempo:
-              <input type="text" placeholder="Duração..." maxlength="10" id="tempo"></input>
+              <input required type="text" placeholder="Duração..." maxlength="10" id="tempo"></input>
             </li>
             <li>
               Custo:
-              <input type="text" placeholder="Preço..." maxlength="5" id="custo"></input>
+              <input required type="text" placeholder="Preço..." maxlength="5" id="custo"></input>
             </li>
             <li>
               Ganho:
-              <input type="text" placeholder="Ganha..." maxlength="5" id="ganho"></input>
+              <input required type="text" placeholder="Ganha..." maxlength="5" id="ganho"></input>
             </li>
           </ul>
           </div>
           <div class="propriedades">
-          <textarea class="habilidade-nome" spellcheck="false" maxlength="25"></textarea>
+          <textarea required class="habilidade-nome" spellcheck="false" maxlength="25"></textarea>
           <hr />
           <p>Propriedade:</p>
-            <textarea rows="4" maxlength="165" spellcheck="false" id="propriedade"></textarea>
+            <textarea required rows="4" maxlength="165" spellcheck="false" id="propriedade"></textarea>
           
           <p>Descrição:</p>
-            <textarea rows="4" maxlength="165" spellcheck="false" id="descricao"></textarea>
+            <textarea required rows="4" maxlength="165" spellcheck="false" id="descricao"></textarea>
           </div>
           <button class="ok" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/icon-ok.png"><p>OK</p></button>
         </div>
@@ -85,8 +85,7 @@ botaoAddHabilidade.addEventListener("click", () => {
     url = resultado;
   });
 
-  const botaoOK = popUp.querySelector(".ok");
-  botaoOK.addEventListener("click", () => {
+  popUp.addEventListener("submit", () => {
     const valorNome = nome.value;
     const valorFoto = url;
     const valorTempo = inputTempo.value;
@@ -94,19 +93,6 @@ botaoAddHabilidade.addEventListener("click", () => {
     const valorGanho = inputGanho.value;
     const valorPropriedade = inputPropriedade.value;
     const valorDescricao = inputDescricao.value;
-
-    if (
-      !valorNome ||
-      !valorTempo ||
-      !valorCusto ||
-      !valorGanho ||
-      !valorPropriedade ||
-      !valorDescricao ||
-      !valorFoto
-    ) {
-      alert("Por favor, preencha todos os campos.");
-      return;
-    }
 
     new Habilidade(
       valorNome,

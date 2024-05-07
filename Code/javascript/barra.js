@@ -1,5 +1,5 @@
-import { fecharOnFocusOut } from "./focusOut.js";
-import { deletarDiv } from "./botaoX.js";
+import { fecharOnFocusOut } from "./utils/focusOut.js";
+import { deletarDiv } from "./utils/botaoX.js";
 
 //Cria um pop-up que pede o valor total da barra e o altera (futuramente imlementa mais utilidades pra barra)
 const ListaBotaoConfig = document.querySelectorAll(".barra button");
@@ -9,7 +9,6 @@ ListaBotaoConfig.forEach((botao) =>
 
     const popUp = document.createElement("div");
     popUp.classList.add("pop-up-barra");
-    popUp.setAttribute("tabindex", "0");
     popUp.innerHTML = `
     <button class="X"><img src="./assets/Icons/X.png" /></button>
     <p>Configurações da barra</p>
