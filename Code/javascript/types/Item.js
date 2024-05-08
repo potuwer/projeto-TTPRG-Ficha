@@ -5,18 +5,18 @@ function adicionarItem(i) {
 }
 
 export class Item {
-  nome;
-  foto;
-  peso;
-  quant;
-  desc;
+  id;
+  qnt;
 
-  constructor(nome, foto, peso, quant, desc) {
-    this.nome = nome;
-    this.foto = foto;
-    this.peso = peso;
-    this.quant = quant;
-    this.desc = desc;
-    adicionarItem(this);
+  constructor(id, qnt) {
+    this.id = id;
+    this.qnt = qnt
+    adicionarItem(this)
   }
 }
+
+new Item(0, 3)
+new Item(1, 1)
+new Item(2, 1)
+new Item(3, 2)
+new Item(4, 1)

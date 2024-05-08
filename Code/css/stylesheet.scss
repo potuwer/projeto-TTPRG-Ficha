@@ -711,12 +711,47 @@ body {
   box-sizing: border-box;
   width: 5.5vw;
   height: 5.1vw;
+  position: relative;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & > div {
+      position: absolute;
+      width: 15px;
+      height: 13px;
+      top: 0;
+      right: 0;
+      z-index: 10;
+      border: 0.5px solid rgba(0, 0, 0, 0.7);
+      background: rgba(61, 61, 61, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        color: #d5d5d5;
+        text-align: center;
+        font-family: "Koh Santepheap";
+        font-size: 10px;
+        font-weight: 500;
+      }
+    }
+  }
+
 }
 
-.item img {
+.item-add img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .armadura {

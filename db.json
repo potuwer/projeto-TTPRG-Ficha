@@ -1,11 +1,44 @@
-{ "itens": [
+{
+  "itens": [
     {
-        "nome": "aa",
-        "foto": "aa",
-        "peso": "aa",
-        "quant": "aa",
-        "desc": "aa"
+      "id": 0,
+      "nome": "Poção de Cura",
+      "foto": "https://i.pinimg.com/564x/34/a7/b1/34a7b14f81665a1080bfbf43058ed2b4.jpg",
+      "peso": "1",
+      "quant": "1",
+      "desc": "Uma poção de cura básica, tem um gosto refrescante mas meio acído. Garante um D8 +2 de HP."
+    },
+    {
+      "id": 1,
+      "nome": "Espada",
+      "foto": "https://i.pinimg.com/474x/ea/02/0c/ea020c68649d5820505d7d4f17b3d11f.jpg",
+      "peso": "10",
+      "quant": "1",
+      "desc": "Uma Espada."
+    },
+    {
+      "id": 2,
+      "nome": "Picareta de Diamante",
+      "foto": "https://i.pinimg.com/originals/dd/73/20/dd7320d4f3119d1fac878ec482ed1cc6.jpg",
+      "peso": "15",
+      "quant": "1",
+      "desc": "Uma picareta de diamante que dura muito."
+    },
+    {
+      "id": 3,
+      "nome": "Capa do Batman",
+      "foto": "https://static.vecteezy.com/ti/vetor-gratis/p1/12986558-capa-de-seda-preta-sobre-fundo-branco-vetor.jpg",
+      "peso": "5",
+      "quant": "1",
+      "desc": "A capa do batman."
+    },
+    {
+      "id": 4,
+      "nome": "Samantha Psicóloga",
+      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFl9IoeTpRGnGnwViUuGTQEPV_TheiUz2YexMwGNLS6A&s",
+      "peso": "56",
+      "quant": "1",
+      "desc": "A samantha: mãe, presidente do MonteCatine e psicóloga."
     }
-]
-
+  ]
 }

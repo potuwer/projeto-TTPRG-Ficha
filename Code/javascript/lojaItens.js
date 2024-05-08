@@ -10,6 +10,6 @@ function abrirMercado() {
     const loja = document.createElement("div")
     loja.classList.add("loja")
     loja.innerHTML = ``
-    containerInventario.insertAdjacentElement("afterbegin", loja)
+    containerInventario.insertAdjacentElement("beforebegin", loja)
     fecharOnFocusOut(loja)
 }

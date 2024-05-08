@@ -7,6 +7,9 @@
   display: flex;
   justify-content: space-between;
   border: 5px solid black;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 .popUpItem .container1 {
   list-style: none;
