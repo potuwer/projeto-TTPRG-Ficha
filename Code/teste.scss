@@ -1,120 +1,120 @@
-.popUpItem {
-  width: 850px;
-  height: 420px;
+.loja {
+  height: 700px;
+  width: 1400px;
+  background-image: url("./assets/loja-fundo.png");
   border-radius: 10px;
-  background-image: url("./assets/item-fundo.png");
-  padding: 60px;
-  display: flex;
-  justify-content: space-between;
-  border: 5px solid black;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+  z-index: 100;
+  padding: 40px;
 
-  .container1 {
-    list-style: none;
-    height: 100%;
-    width: 30%;
+  .X-loja {
+    width: 35px;
+    height: 35px;
+    top: 2px;
+    right: 2px;
+    border: 4px solid rgba(0, 0, 0, 0.7);
+    border-radius: 0px 10px 0px 0px;
+  }
+
+  .cabecalho-loja {
+    width: 100%;
+    height: 15%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 30px;
 
-    li {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: left;
-
-      &:first-child {
-        height: 50%;
-      }
-
-      &:last-child {
-        height: 30%;
-      }
-
-      div {
-        display: block;
-        width: 100%;
-        height: 120%;
-        cursor: pointer;
-        background-image: url("/img/cura.png");
-        border-radius: 30px;
-        border: 6px solid #000;
-        box-sizing: border-box;
-        box-shadow: 0px 0px 14px 13px rgba(0, 0, 0, 0.4) inset;
-        img {
-          border-radius: 30px;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-
-      span {
-        display: flex;
-        color: #7c7c7c;
-        font-family: Inter;
-        font-size: 25px;
-        font-weight: 900;
-        height: 40%;
-        padding-left: 20px;
-
-        p {
-          margin-left: 20px;
-          width: auto;
-          height: 100%;
-
-          color: #a5a5a5;
-          font-family: Inter;
-          font-size: 25px;
-          font-weight: 900;
-        }
-      }
+    span {
+      margin-left: 20px;
+      color: #fff;
+      font-family: "Inknut Antiqua";
+      font-size: 60px;
     }
+
+    .carrinho {
+      box-sizing: border-box;
+      padding: 10px 0px 20px 0px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: right;
+      column-gap: 15px;
+    }
+  }
+
+  hr {
+    width: auto;
+    height: 15px;
+    background-color: rgba(96, 96, 96, 0.8);
+  }
+
+  .mostruario-loja {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: auto;
+    column-gap: 10px;
+    row-gap: 20px;
+
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+  }
+
+  .add {
+    position: absolute;
+    z-index: 1;
+    right: 25px;
+    bottom: 20px;
+
+    width: 200px;
+    height: 90px;
+    border: 4px solid black;
+    box-shadow: 0px 0px 8.3px 7px rgba(0, 0, 0, 0.4) inset;
+    background-color: #dca200;
+    border-radius: 50%;
+
+    color: #000;
+    font-family: "Inknut Antiqua";
+    font-size: 23px;
+    font-weight: 900;
   }
 }
 
-.container2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-content: space-between;
-  width: 60%;
+.item-loja {
+  grid-column-start: span 1;
+  grid-row-start: span 1;
+  width: 75px;
+  aspect-ratio: 1/1;
+  border: 8px solid black;
+  box-sizing: border-box;
+  position: relative;
 
-  p {
-    display: block;
-    resize: none;
+  & > div {
     width: 100%;
-  }
+    height: 100%;
+    & > * {
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  span {
-    color: #7c7c7c;
-    font-family: Inter;
-    font-size: 25px;
-    font-weight: 900;
-    height: 30%;
-  }
+    button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
 
-  #nome {
-    height: 50%;
-    background: transparent;
-    text-align: center;
-    font-family: "Irish Grover";
-    font-size: 95px;
-    font-weight: 400;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
-      1px 1px 0 #fff;
-  }
-
-  #desc {
-    height: auto;
-    background: transparent;
-    color: #a5a5a5;
-    font-family: Inter;
-    font-size: 25px;
-    font-weight: 500;
+      width: 17px;
+      height: 17px;
+      background-color: transparent;
+    }
   }
 }
