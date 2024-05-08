@@ -27,12 +27,12 @@ async function adicionarAoInventatio() {
 
 // Procura um espaço no inventário vazio, cria o html do item baseado no item da API e no LS, e coloca-o no espaço vazio
 function criarItemNoInventario(item) {
-  const itemLS = ListaItens.find(i => i.id == item.id)
   const novoItem = document.createElement("div");
   novoItem.id = item.id
-  novoItem.innerHTML = `
-    <img src="${item.foto}" alt="${item.nome}" />
-    <div><span>${itemLS.qnt}x</span></div>`;
+  novoItem.innerHTML = `<img src="${item.foto}" alt="${item.nome}" />`;
+
+  const itemLS = ListaItens.find(i => i.id == item.id)
+    itemLS.qnt > 1 ? novoItem.insertAdjacentHTML("beforeend", `<div><span>${itemLS.qnt}x</span></div>`) : undefined
 
   const itemDomVazio = Array.from(containerItensDOM).find(
     (item) => item.innerHTML == ""
