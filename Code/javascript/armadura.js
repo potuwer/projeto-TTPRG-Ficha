@@ -3,7 +3,6 @@ import { carregarInventario, verificadorInvOuArm } from "./inventario.js"
 
 export function trocarInventario(popUp) {
     popUp.querySelector(".mudar").addEventListener("click", () => {
-        debugger
         if (verificadorInvOuArm) {
             const itemLista = ListaItens.find(obj => obj.id == popUp.id)
             const indexSare = ListaItens.findIndex(obj => obj.id == itemLista.id)
@@ -26,8 +25,6 @@ export function trocarInventario(popUp) {
               }
         }
 
-        console.log("ITENS:", ListaItens)
-        console.log("ARMADURA:", ListaArmadura)
         carregarInventario() 
         popUp.remove()
     })

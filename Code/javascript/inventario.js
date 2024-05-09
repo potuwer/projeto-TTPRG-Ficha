@@ -6,6 +6,7 @@ const containerItensDOM = document.querySelectorAll(".item");
 const containerInventario = document.querySelector(".inventario");
 const containerArmadurasDOM = document.querySelectorAll(".itens-armadura .item");
 const pesoInventario = document.querySelector(".peso-inventario");
+
 export let verificadorInvOuArm = undefined;
 
 //Busca os dados de itens da MockAPI
@@ -23,7 +24,9 @@ import { ListaArmadura, ListaItens } from "./types/Item.js"; // Pegar do lista d
 //Procura um dado(mockAPI) que tem o mesmo ID que algum da lista(localstorage)
 export async function carregarInventario() {
   const dados = await carregarDados();
+  console.log("Antes:", pesoInventario.innerHTML)
   pesoInventario.innerHTML = 0;
+  let valorPeso = 0
 
   //deleta todos os itens ja existentes antes de carregar
   containerItensDOM.forEach((container) => {
@@ -35,11 +38,14 @@ export async function carregarInventario() {
     itemAntigo ? itemAntigo.remove() : undefined;
   });
 
+  //Cria os itens no espaço vazio
   ListaItens.forEach((item) => {
     const itemObj = dados.find((dado) => dado.id == item.id);
-    pesoInventario.innerHTML = +parseInt(itemObj.peso * item.qnt);
+    valorPeso += parseInt(itemObj.peso * item.qnt);
     itemObj ? criarItemNoInventario(itemObj) : undefined;
+    console.log(valorPeso)
   });
+  pesoInventario.innerHTML = valorPeso
 
   ListaArmadura.forEach((item) => {
     const itemObj = dados.find((dado) => dado.id == item.id);
