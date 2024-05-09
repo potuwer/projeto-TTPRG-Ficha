@@ -34,10 +34,6 @@
   padding: 1px;
   cursor: pointer;
 }
-.remover img {
-  height: 100%;
-  aspect-ratio: 1/1;
-}
 .remover p {
   text-indent: 5px;
   margin: 0;
@@ -45,6 +41,10 @@
   font-family: "Source Serif 4";
   font-size: 20px;
   font-weight: 700;
+}
+.remover img {
+  height: 100%;
+  aspect-ratio: 1/1;
 }
 
 .ok {
@@ -60,10 +60,6 @@
   padding: 1px;
   cursor: pointer;
 }
-.ok img {
-  height: 100%;
-  aspect-ratio: 1/1;
-}
 .ok p {
   text-indent: 5px;
   margin: 0;
@@ -71,6 +67,36 @@
   font-family: "Source Serif 4";
   font-size: 20px;
   font-weight: 700;
+}
+.ok img {
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.mudar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  width: 121px;
+  height: 25px;
+  background-color: rgba(94, 236, 44, 0.5);
+  border: 3px solid rgba(2, 61, 11, 0.7);
+  padding: 1px;
+  cursor: pointer;
+}
+.mudar p {
+  text-indent: 5px;
+  margin: 0;
+  color: #fff;
+  font-family: "Source Serif 4";
+  font-size: 20px;
+  font-weight: 700;
+}
+.mudar img {
+  height: 100%;
+  width: auto;
 }
 
 /* POP UP BARRA*/
@@ -435,6 +461,30 @@
   -moz-column-gap: 15px;
        column-gap: 15px;
 }
+.loja .cabecalho-loja .carrinho .item-loja:hover {
+  border: 8px solid rgb(132, 0, 0);
+  cursor: pointer;
+}
+.loja .cabecalho-loja .carrinho .item-loja:hover::before {
+  content: ""; /* Adiciona conteúdo ao pseudo-elemento */
+  position: absolute; /* Posicionamento absoluto em relação ao elemento pai */
+  top: 0; /* Alinha no topo */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Cobertura total na largura */
+  height: 100%; /* Cobertura total na altura */
+  background-color: rgba(255, 0, 0, 0.3); /* Vermelho claro com transparência */
+  z-index: 1; /* Coloca o pseudo-elemento sobre o conteúdo da div */
+}
+.loja .cabecalho-loja .carrinho .item-loja:hover::after {
+  content: "X"; /* Adiciona conteúdo ao pseudo-elemento */
+  position: absolute; /* Posicionamento absoluto em relação ao elemento pai */
+  top: 50%; /* Alinha verticalmente ao centro */
+  left: 50%; /* Alinha horizontalmente ao centro */
+  transform: translate(-50%, -50%); /* Centraliza o conteúdo */
+  color: white; /* Cor do texto */
+  font-size: 24px; /* Tamanho do texto */
+  z-index: 2; /* Coloca o pseudo-elemento sobre a camada de fundo */
+}
 .loja hr {
   width: auto;
   height: 15px;
@@ -478,29 +528,26 @@
   grid-column-start: span 1;
   grid-row-start: span 1;
   width: 75px;
-  aspect-ratio: 1/1;
+  height: 75px;
   border: 8px solid black;
   box-sizing: border-box;
   position: relative;
 }
-.item-loja > div {
-  width: 100%;
-  height: 100%;
-}
-.item-loja > div > * {
+.item-loja > * {
   cursor: pointer;
 }
-.item-loja > div img {
+.item-loja img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.item-loja > div button {
+.item-loja button {
   position: absolute;
   top: 0;
   right: 0;
   z-index: 1;
+  border: 1px solid black;
   width: 17px;
   height: 17px;
   background-color: transparent;

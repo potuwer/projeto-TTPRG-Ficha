@@ -1,4 +1,4 @@
-export function bordaSumir(lista, cor, comecaSem = false) {
+export function bordaSumir(lista, cor, comecaSem = false, tamanho = false) {
   if (comecaSem) {
     lista.forEach((input) => {
       input.style.border = "none";
@@ -9,7 +9,8 @@ export function bordaSumir(lista, cor, comecaSem = false) {
       if (input.value != "") {
         input.style.border = "none";
       } else {
-        input.style.border = `1px dashed ${cor}`;
+        const bordaTamanho = tamanho ? tamanho : 1
+        input.style.border = `${bordaTamanho}px dashed ${cor}`;
       }
     });
   });
@@ -25,3 +26,6 @@ bordaSumir(listaPericias, "#F00");
 
 const listaCorpo = document.querySelectorAll(".altura-peso input")
 bordaSumir(listaCorpo, "#281a04")
+
+const pesoInventario = document.querySelectorAll(".capacidade input")
+bordaSumir(pesoInventario, "#3a230e", false, 3)

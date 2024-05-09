@@ -16,11 +16,6 @@
   padding: 1px;
   cursor: pointer;
 
-  img {
-    height: 100%;
-    aspect-ratio: 1/1;
-  }
-
   p {
     text-indent: 5px;
     margin: 0;
@@ -51,7 +46,7 @@
   }
 }
 
-// Botão Remover
+// Botoes utils
 
 .remover {
   @include centrar-itens(center, center);
@@ -61,6 +56,10 @@
     rgba(236, 44, 44, 0.5),
     3px solid rgba(61, 2, 2, 0.7)
   );
+  img {
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
 }
 
 .ok {
@@ -71,6 +70,24 @@
     rgba(19, 211, 211, 0.5),
     3px solid rgba(194, 253, 253, 0.7)
   );
+  img {
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
+}
+
+.mudar {
+  @include centrar-itens(center, center);
+  @include botao-padrao(
+    121px,
+    25px,
+    rgba(94, 236, 44, 0.50),
+    3px solid rgba(2, 61, 11, 0.70)
+  );
+  img {
+    height: 100%;
+    width: auto;;
+  }
 }
 
 /* POP UP BARRA*/
@@ -302,7 +319,6 @@
   }
 }
 
-
 // PopUp Item
 .popUpItem {
   width: 850px;
@@ -425,7 +441,6 @@
   }
 }
 
-
 // LOJA INVENTARIOA
 
 .loja {
@@ -469,6 +484,38 @@
       flex-direction: row-reverse;
       justify-content: right;
       column-gap: 15px;
+
+      .item-loja:hover {
+        border: 8px solid rgb(132, 0, 0);
+        cursor: pointer;
+
+        &::before {
+          content: ""; /* Adiciona conteúdo ao pseudo-elemento */
+          position: absolute; /* Posicionamento absoluto em relação ao elemento pai */
+          top: 0; /* Alinha no topo */
+          left: 0; /* Alinha à esquerda */
+          width: 100%; /* Cobertura total na largura */
+          height: 100%; /* Cobertura total na altura */
+          background-color: rgba(
+            255,
+            0,
+            0,
+            0.3
+          ); /* Vermelho claro com transparência */
+          z-index: 1; /* Coloca o pseudo-elemento sobre o conteúdo da div */
+        }
+
+        &::after {
+          content: "X"; /* Adiciona conteúdo ao pseudo-elemento */
+          position: absolute; /* Posicionamento absoluto em relação ao elemento pai */
+          top: 50%; /* Alinha verticalmente ao centro */
+          left: 50%; /* Alinha horizontalmente ao centro */
+          transform: translate(-50%, -50%); /* Centraliza o conteúdo */
+          color: white; /* Cor do texto */
+          font-size: 24px; /* Tamanho do texto */
+          z-index: 2; /* Coloca o pseudo-elemento sobre a camada de fundo */
+        }
+      }
     }
   }
 
@@ -520,32 +567,29 @@
   grid-column-start: span 1;
   grid-row-start: span 1;
   width: 75px;
-  aspect-ratio: 1/1;
+  height: 75px;
   border: 8px solid black;
   box-sizing: border-box;
   position: relative;
 
-  & > div {
+  & > * {
+    cursor: pointer;
+  }
+  img {
     width: 100%;
     height: 100%;
-    & > * {
-      cursor: pointer;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    object-fit: cover;
+  }
 
-    button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 1;
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
 
-      width: 17px;
-      height: 17px;
-      background-color: transparent;
-    }
+    border: 1px solid black;
+    width: 17px;
+    height: 17px;
+    background-color: transparent;
   }
 }

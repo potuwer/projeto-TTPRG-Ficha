@@ -679,22 +679,36 @@ body {
   width: auto;
   height: 100%;
   width: 70%;
-}
 
-.capacidade {
-  width: 33%;
-  height: 3.33vw;
-  background-image: url(../assets/InventarioCapacidade-fundo.png);
-  background-size: cover;
-  text-align: center;
-  box-sizing: border-box;
+  .capacidade {
+    width: 33%;
+    height: 3.33vw;
+    background-image: url(../assets/InventarioCapacidade-fundo.png);
+    background-size: cover;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 1.14vw 1.14vw 0px 0px;
+    border: 0.454vw solid #3a230e;
 
-  border-radius: 1.14vw 1.14vw 0px 0px;
-  border: 0.454vw solid #3a230e;
-  color: #000;
-  font-family: "Koh Santepheap";
-  font-size: 2vw;
-  font-weight: 700;
+    font-family: "Koh Santepheap";
+    font-size: 2vw;
+    font-weight: 700;
+  
+    input {
+      display: inline-block;
+      text-align: right;
+      width: 18%;
+      height: 90%;
+      background: transparent;
+
+      font-family: "Koh Santepheap";
+      font-size: 2vw;
+      font-weight: 700;
+    }
+  }
 }
 
 .itens-mochila {
@@ -708,7 +722,7 @@ body {
   grid-column: span 1;
   grid-row: span 1;
   border: 0.6vw solid #000;
-  
+
   box-sizing: border-box;
   width: 5.5vw;
   height: 5.1vw;
@@ -747,14 +761,13 @@ body {
       }
     }
   }
-
 }
 
 .item-add {
   cursor: pointer;
   img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
   }
 }
 
