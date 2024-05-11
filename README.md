@@ -23,9 +23,9 @@
 - [x] Implementação desse design no HTML e CSS.
 - [x] Possibilitar interetividade dos itens com usuário.
 - [x] Criar funcionalidade das habilidades.
-- [ ] Criar funcionalidade do inventário.
-- [ ] Arquivo json dos itens e criação dinâmica deles.
-- [ ] Criar funcionalidade que guarda todas as informações no localStorage
+- [x] Criar funcionalidade do inventário.
+- [x] Arquivo json dos itens e criação dinâmica deles.
+- [x] Criar funcionalidade que guarda todas as informações no localStorage
 
 ## Futuramente
 - [ ] Criar página do mestre da sessão(que da acesso a todas as fichas)
