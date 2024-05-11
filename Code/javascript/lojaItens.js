@@ -55,7 +55,7 @@ async function abastecerLoja(loja) {
 
     produto.querySelector("button").addEventListener("click", (e) => {
       e.stopPropagation();
-      criarPopUp(produto, false);
+      criarPopUp(produto, false, false, loja);
     });
     adicionarAoCarrinho(produto, carrinho, loja);
   });

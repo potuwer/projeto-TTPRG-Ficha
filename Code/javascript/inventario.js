@@ -24,7 +24,6 @@ import { ListaArmadura, ListaItens } from "./types/Item.js"; // Pegar do lista d
 //Procura um dado(mockAPI) que tem o mesmo ID que algum da lista(localstorage)
 export async function carregarInventario() {
   const dados = await carregarDados();
-  console.log("Antes:", pesoInventario.innerHTML)
   pesoInventario.innerHTML = 0;
   let valorPeso = 0
 
@@ -43,7 +42,6 @@ export async function carregarInventario() {
     const itemObj = dados.find((dado) => dado.id == item.id);
     valorPeso += parseInt(itemObj.peso * item.qnt);
     itemObj ? criarItemNoInventario(itemObj) : undefined;
-    console.log(valorPeso)
   });
   pesoInventario.innerHTML = valorPeso
 
@@ -93,15 +91,16 @@ export function criarItemNoInventario(item, armadura = false) {
 }
 
 //Cria o PopUp do item quando clicado
-export async function criarPopUp(itemDom, puxarLS = true) {
+export async function criarPopUp(itemDom, puxarLS = true, botoesAlt = true, localDoPopUp = containerInventario) {
   const dadosApi = await carregarDados();
 
   const itemDado = dadosApi.find((dado) => dado.id == itemDom.id);
 
   let quant = itemDado.qnt;
   let qntMultipla = "";
+  let itemLocalStorage = ""
   if (puxarLS) {
-    const itemLocalStorage = ListaItens.find(
+    itemLocalStorage = ListaItens.find(
       (itemLS) => itemLS.id == itemDom.id
     );
     quant = itemLocalStorage.qnt;
@@ -112,6 +111,10 @@ export async function criarPopUp(itemDom, puxarLS = true) {
   const popUpItem = document.createElement("div");
   popUpItem.classList.add("popUpItem");
   popUpItem.id = itemDado.id;
+
+  const btnsDOMAlt = `
+  <button class="remover" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
+  <button class="mudar" style="bottom: 5px; right: 150px;"><img src="./assets/Icons/icon-mudar.png"><p>MUDAR</p></button>`
 
   popUpItem.innerHTML = `
   <button class="X"><img src="./assets/Icons/X.png" /></button>      
@@ -128,17 +131,31 @@ export async function criarPopUp(itemDom, puxarLS = true) {
     <p id="nome">${itemDado.nome}</p>
     <span>Descrição:<p id="desc">${itemDado.desc}</p></span>
   </div>
-  <button class="remover" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
-  <button class="mudar" style="bottom: 5px; right: 150px;"><img src="./assets/Icons/icon-mudar.png"><p>MUDAR</p></button>
+  ${botoesAlt ? btnsDOMAlt : ``}
   `;
 
-  containerInventario.insertAdjacentElement("beforebegin", popUpItem);
-  trocarInventario(popUpItem);
+  localDoPopUp.insertAdjacentElement("afterbegin", popUpItem);
+
+  botoesAlt ? removerItem(popUpItem, itemLocalStorage) : undefined; 
+  
+  botoesAlt ? trocarInventario(popUpItem): undefined;
 
   fecharOnFocusOut(popUpItem);
 
   const botaoX = popUpItem.querySelector(".X");
   deletarDiv(botaoX, popUpItem);
 }
+
+// Função que deleta os itens do inventário
+function removerItem(popUp, itemLS) {
+  const btnRemover = popUp.querySelector(".remover")
+  btnRemover.addEventListener("click", () =>{
+    const quantidade = itemLS.qnt
+    quantidade > 1 ? itemLS.qnt -= 1 : ListaItens.splice(itemLS, 1)
+    carregarInventario()
+    popUp.remove()
+  })
+}
+
 
 carregarInventario();

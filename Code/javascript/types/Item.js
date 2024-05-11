@@ -19,7 +19,6 @@ export class Item {
   constructor(id, qnt) {
     this.id = id;
     this.qnt = qnt
-
     adicionarItem(this)
   }
 }
