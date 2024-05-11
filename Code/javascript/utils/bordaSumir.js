@@ -2,6 +2,11 @@ export function bordaSumir(lista, cor, comecaSem = false, tamanho = false) {
   const bordaTamanho = tamanho ? tamanho : 1;
   if (comecaSem) {
     lista.forEach((input) => {
+      if (input.value == "") {
+        debugger
+        input.style.border = `${bordaTamanho}px dashed ${cor}`
+        return
+      }
       input.style.border = "none";
     });
   } else {
