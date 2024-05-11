@@ -4,7 +4,9 @@ import { trocarInventario } from "./armadura.js";
 
 const containerItensDOM = document.querySelectorAll(".item");
 const containerInventario = document.querySelector(".inventario");
-const containerArmadurasDOM = document.querySelectorAll(".itens-armadura .item");
+const containerArmadurasDOM = document.querySelectorAll(
+  ".itens-armadura .item"
+);
 const pesoInventario = document.querySelector(".peso-inventario");
 
 export let verificadorInvOuArm = undefined;
@@ -25,7 +27,7 @@ import { ListaArmadura, ListaItens } from "./types/Item.js"; // Pegar do lista d
 export async function carregarInventario() {
   const dados = await carregarDados();
   pesoInventario.innerHTML = 0;
-  let valorPeso = 0
+  let valorPeso = 0;
 
   //deleta todos os itens ja existentes antes de carregar
   containerItensDOM.forEach((container) => {
@@ -43,7 +45,7 @@ export async function carregarInventario() {
     valorPeso += parseInt(itemObj.peso * item.qnt);
     itemObj ? criarItemNoInventario(itemObj) : undefined;
   });
-  pesoInventario.innerHTML = valorPeso
+  pesoInventario.innerHTML = valorPeso;
 
   ListaArmadura.forEach((item) => {
     const itemObj = dados.find((dado) => dado.id == item.id);
@@ -60,7 +62,8 @@ export function criarItemNoInventario(item, armadura = false) {
 
   if (!armadura) {
     const itemLS = ListaItens.find((i) => i.id == item.id);
-    itemLS.qnt > 1 ? novoItem.insertAdjacentHTML(
+    itemLS.qnt > 1
+      ? novoItem.insertAdjacentHTML(
           "beforeend",
           `<div><span>${itemLS.qnt}x</span></div>`
         )
@@ -73,8 +76,8 @@ export function criarItemNoInventario(item, armadura = false) {
 
     // Ação do click no Item
     novoItem.addEventListener("click", () => {
-      verificadorInvOuArm = true
-      criarPopUp(novoItem)
+      verificadorInvOuArm = true;
+      criarPopUp(novoItem);
     });
   } else {
     const itemDomVazio = Array.from(containerArmadurasDOM).find(
@@ -84,27 +87,31 @@ export function criarItemNoInventario(item, armadura = false) {
 
     // Ação do click no Item
     novoItem.addEventListener("click", () => {
-      verificadorInvOuArm = false
-      criarPopUp(novoItem, false)
+      verificadorInvOuArm = false;
+      criarPopUp(novoItem, false);
     });
   }
 }
 
 //Cria o PopUp do item quando clicado
-export async function criarPopUp(itemDom, puxarLS = true, botoesAlt = true, localDoPopUp = containerInventario) {
+export async function criarPopUp(
+  itemDom,
+  puxarLS = true,
+  botoesAlt = true,
+  localDoPopUp = containerInventario
+) {
   const dadosApi = await carregarDados();
 
   const itemDado = dadosApi.find((dado) => dado.id == itemDom.id);
 
   let quant = itemDado.qnt;
   let qntMultipla = "";
-  let itemLocalStorage = ""
+  let itemLocalStorage = "";
   if (puxarLS) {
-    itemLocalStorage = ListaItens.find(
-      (itemLS) => itemLS.id == itemDom.id
-    );
+    itemLocalStorage = ListaItens.find((itemLS) => itemLS.id == itemDom.id);
     quant = itemLocalStorage.qnt;
-    itemLocalStorage.qnt > 1 ? (qntMultipla = `(${itemLocalStorage.qnt * itemDado.peso}kg)`)
+    itemLocalStorage.qnt > 1
+      ? (qntMultipla = `(${itemLocalStorage.qnt * itemDado.peso}kg)`)
       : undefined;
   }
 
@@ -114,7 +121,7 @@ export async function criarPopUp(itemDom, puxarLS = true, botoesAlt = true, loca
 
   const btnsDOMAlt = `
   <button class="remover" style="bottom: 5px; right: 5px;"><img src="./assets/Icons/X.png"><p>REMOVER</p></button>
-  <button class="mudar" style="bottom: 5px; right: 150px;"><img src="./assets/Icons/icon-mudar.png"><p>MUDAR</p></button>`
+  <button class="mudar" style="bottom: 5px; right: 150px;"><img src="./assets/Icons/icon-mudar.png"><p>MUDAR</p></button>`;
 
   popUpItem.innerHTML = `
   <button class="X"><img src="./assets/Icons/X.png" /></button>      
@@ -136,9 +143,9 @@ export async function criarPopUp(itemDom, puxarLS = true, botoesAlt = true, loca
 
   localDoPopUp.insertAdjacentElement("afterbegin", popUpItem);
 
-  botoesAlt ? removerItem(popUpItem, itemLocalStorage) : undefined; 
-  
-  botoesAlt ? trocarInventario(popUpItem): undefined;
+  botoesAlt ? removerItem(popUpItem, itemLocalStorage) : undefined;
+
+  botoesAlt ? trocarInventario(popUpItem) : undefined;
 
   fecharOnFocusOut(popUpItem);
 
@@ -148,14 +155,32 @@ export async function criarPopUp(itemDom, puxarLS = true, botoesAlt = true, loca
 
 // Função que deleta os itens do inventário
 function removerItem(popUp, itemLS) {
-  const btnRemover = popUp.querySelector(".remover")
-  btnRemover.addEventListener("click", () =>{
-    const quantidade = itemLS.qnt
-    quantidade > 1 ? itemLS.qnt -= 1 : ListaItens.splice(itemLS, 1)
-    carregarInventario()
-    popUp.remove()
-  })
-}
+  const btnRemover = popUp.querySelector(".remover");
+  btnRemover.addEventListener("click", () => {
+    const quantidade = itemLS.qnt;
+    if (quantidade > 1) {
+      const valorMenos = prompt("Quantos itens deseja remover?");
+      if (!valorMenos || parseInt(valorMenos) != parseFloat(valorMenos)) {
+        alert("Valor irreconhecido.");
+        return;
+      } else {
+        const valorMenorQuePossivel = itemLS.qnt - valorMenos;
+        if (valorMenorQuePossivel < 0) {
+          alert("Valor de subtração menor que o adquirido.");
+          return;
+        } else if (valorMenorQuePossivel == 0) {
+          ListaItens.splice(itemLS, 1);
+        } else {
+          itemLS.qnt -= valorMenos;
+        }
+      }
+    } else {
+      ListaItens.splice(itemLS, 1);
+    }
 
+    carregarInventario();
+    popUp.remove();
+  });
+}
 
 carregarInventario();
