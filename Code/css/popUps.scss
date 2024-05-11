@@ -445,7 +445,8 @@
 
 .loja {
   height: 700px;
-  width: 1400px;
+  width: 1200px;
+  box-sizing: border-box;
   background-image: url("../assets/loja-fundo.png");
   border-radius: 10px;
   position: absolute;

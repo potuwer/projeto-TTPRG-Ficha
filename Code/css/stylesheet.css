@@ -483,7 +483,7 @@ body::-webkit-scrollbar {
   display: inline;
   background: transparent;
   width: 30%;
-  height: 11px;
+  height: 0.8vw;
   text-align: right;
 }
 .pericia ul::-webkit-scrollbar {
@@ -659,12 +659,12 @@ body::-webkit-scrollbar {
 }
 .item > div > div {
   position: absolute;
-  width: 15px;
-  height: 13px;
+  width: 1.15vw;
+  height: 1vw;
   top: 0;
   right: 0;
   z-index: 2;
-  border: 0.5px solid rgba(0, 0, 0, 0.7);
+  border: 0.05vw solid rgba(0, 0, 0, 0.7);
   background: rgba(61, 61, 61, 0.8);
   display: flex;
   justify-content: center;
@@ -674,7 +674,7 @@ body::-webkit-scrollbar {
   color: #d5d5d5;
   text-align: center;
   font-family: "Koh Santepheap";
-  font-size: 10px;
+  font-size: 0.75vw;
   font-weight: 500;
 }
 
