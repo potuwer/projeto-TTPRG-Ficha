@@ -104,7 +104,7 @@ async function comprarDoCarrinho(btnAdd, loja) {
       if (!itemJaExistente) {
         new Item(item.id, parseInt(item.qnt));
       } else {
-        itemJaExistente.aumentarQnt(parseInt(item.qnt));
+        itemJaExistente.qnt = parseInt(itemJaExistente.qnt) + parseInt(item.qnt);
       }
     });
 

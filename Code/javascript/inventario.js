@@ -14,11 +14,11 @@ export let verificadorInvOuArm = undefined;
 
 //Busca os dados de itens da MockAPI
 export async function carregarDados() {
-  const resposta = await fetch("../../db.json"); //https://my-json-server.typicode.com/potuwer/projeto-TTPRG-Ficha/itens
+  const resposta = await fetch("https://my-json-server.typicode.com/potuwer/projeto-TTPRG-Ficha/db");
   if (!resposta.ok) {
     throw new Error("Não foi possível carregar os dados da MockAPI");
   }
-  const dados = await resposta.json();
+  const dados = await resposta.json()
   return dados.itens;
 }
 
@@ -98,12 +98,7 @@ export function criarItemNoInventario(item, armadura = false) {
 }
 
 //Cria o PopUp do item quando clicado
-export async function criarPopUp(
-  itemDom,
-  puxarLS = true,
-  botoesAlt = true,
-  localDoPopUp = containerInventario
-) {
+export async function criarPopUp( itemDom, puxarLS = true, botoesAlt = true, localDoPopUp = containerInventario) {
   const dadosApi = await carregarDados();
 
   const itemDado = dadosApi.find((dado) => dado.id == itemDom.id);
@@ -162,7 +157,15 @@ function removerItem(popUp, itemLS) {
   const btnRemover = popUp.querySelector(".remover");
   btnRemover.addEventListener("click", () => {
     const quantidade = itemLS.qnt;
-    if (quantidade > 1) {
+    if (quantidade == 1 || !quantidade) {
+      if (verificadorInvOuArm) {
+        const indexItem = ListaItens.findIndex(item => item.id == itemLS.id)
+        ListaItens.splice(indexItem, 1);
+      } else {
+        const indexItem = ListaArmadura.findIndex(item => item.id == itemLS.id)
+        ListaArmadura.splice(indexItem, 1);
+      }
+    } else {
       const valorMenos = prompt("Quantos itens deseja remover?");
       if (!valorMenos || parseInt(valorMenos) != parseFloat(valorMenos)) {
         alert("Valor irreconhecido.");
@@ -178,8 +181,6 @@ function removerItem(popUp, itemLS) {
           itemLS.qnt -= valorMenos;
         }
       }
-    } else {
-      ListaItens.splice(itemLS, 1);
     }
 
     carregarInventario();
