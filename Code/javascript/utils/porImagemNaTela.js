@@ -33,9 +33,8 @@ const fotoDePerfil = document.querySelector(".container-foto-de-perfil img");
 const inputFotoCorpo = document.querySelector(".container-foto-corpo input");
 const fotoDoCorpo = document.querySelector(".container-foto-corpo img");
 
-trocarNoLocalStorage("foto-perfil", fotoDePerfil.src)
 porImagemNaTela(inputFotoPerfil, fotoDePerfil, "foto-perfil");
 fotoDePerfil.src = trocarNoLocalStorage("foto-perfil");
 
 porImagemNaTela(inputFotoCorpo, fotoDoCorpo, "foto-corpo");
-fotoDePerfil.src = trocarNoLocalStorage("foto-corpo")
+fotoDoCorpo.src = trocarNoLocalStorage("foto-corpo")
