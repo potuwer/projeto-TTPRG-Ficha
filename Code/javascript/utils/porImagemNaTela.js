@@ -1,4 +1,6 @@
-export function porImagemNaTela(input, img) {
+import { trocarNoLocalStorage } from "../localStorage.js"
+
+export function porImagemNaTela(input, img, nome) {
   return new Promise((resolve, reject) => {
     input.addEventListener("change", (e) => {
       const arquivo = e.target.files[0];
@@ -13,6 +15,7 @@ export function porImagemNaTela(input, img) {
           img.src = imgResult;
 
           resolve(reader.result);
+          trocarNoLocalStorage(nome, reader.result)
         });
 
         reader.readAsDataURL(arquivo);
@@ -30,5 +33,9 @@ const fotoDePerfil = document.querySelector(".container-foto-de-perfil img");
 const inputFotoCorpo = document.querySelector(".container-foto-corpo input");
 const fotoDoCorpo = document.querySelector(".container-foto-corpo img");
 
-porImagemNaTela(inputFotoPerfil, fotoDePerfil);
-porImagemNaTela(inputFotoCorpo, fotoDoCorpo);
+trocarNoLocalStorage("foto-perfil", fotoDePerfil.src)
+porImagemNaTela(inputFotoPerfil, fotoDePerfil, "foto-perfil");
+fotoDePerfil.src = trocarNoLocalStorage("foto-perfil");
+
+porImagemNaTela(inputFotoCorpo, fotoDoCorpo, "foto-corpo");
+fotoDePerfil.src = trocarNoLocalStorage("foto-corpo")
