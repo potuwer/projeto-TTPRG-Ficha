@@ -1,7 +1,8 @@
 import { fecharOnFocusOut } from "./utils/focusOut.js";
 import { deletarDiv } from "./utils/botaoX.js";
+import { trocarNoLocalStorage } from "./utils/localStorage.js"
 
-//Cria um pop-up que pede o valor total da barra e o altera (futuramente imlementa mais utilidades pra barra)
+//Cria um pop-up que pede o valor total da barra e o altera (futuramente implementa mais utilidades pra barra)
 const ListaBotaoConfig = document.querySelectorAll(".barra button");
 ListaBotaoConfig.forEach((botao) =>
   botao.addEventListener("click", () => {
@@ -62,23 +63,15 @@ listaComponentesBarra.forEach((cBarra) => {
   botoes.forEach((botao) => {
     const cheia = cBarra.querySelector(".cheia");
     const spanTemporario = cheia.firstChild;
-    const spanFinal = cheia.lastChild;
 
     botao.addEventListener("click", () => {
-      const valorMaximo = parseInt(spanFinal.innerHTML);
       const valorAtribuido = parseInt(botao.innerHTML);
       const valorTemporario = parseInt(spanTemporario.innerHTML);
-      const valorTotal = parseInt(spanFinal.innerHTML);
 
       const novoValor = valorAtribuido + valorTemporario;
       spanTemporario.innerHTML = novoValor;
-      if (novoValor > valorMaximo) {
-        spanTemporario.style.color = "yellow";
-      } else {
-        spanTemporario.style.color = "";
-      }
-
-      atualizarCheia(cheia, novoValor, valorTotal);
+      
+      atualizarCheia(cheia);
     });
   });
 });
@@ -93,16 +86,41 @@ function LimitarInput(input, valor) {
 }
 
 // Fazer largura da .cheia responsiva ao valor do teporario
-function atualizarCheia(barra, valor, valorTotal) {
-  let decimal = valor / valorTotal;
+function atualizarCheia(barra) {
+  const span1 = barra.querySelectorAll("span")[0];
+  const span2 = barra.querySelectorAll("span")[1];
+
+  let decimal = span1.innerHTML / span2.innerHTML;
   decimal *= 100;
 
   if (decimal < 0) {
+    span1.style.color = ""
     barra.style.width = "0%";
   }
   if (decimal > 100) {
+    span1.style.color = "yellow";
     barra.style.width = "100%";
   } else {
+    span1.style.color = ""
     barra.style.width = `${decimal}%`;
   }
 }
+
+// Salvar no LS
+const spans = document.querySelectorAll(".cheia span");
+spans.forEach((span, index) => {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((m) => {
+      trocarNoLocalStorage(`barra-span-${index}`, m.target.innerHTML)
+    });
+  });
+  observer.observe(span, {childList: true, subtree: true,});
+
+  span.innerHTML = trocarNoLocalStorage(`barra-span-${index}`)
+});
+
+
+const cheias = document.querySelectorAll(".cheia");
+cheias.forEach((cheia) => {
+  atualizarCheia(cheia)
+})

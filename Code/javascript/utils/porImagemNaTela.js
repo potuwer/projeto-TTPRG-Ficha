@@ -1,4 +1,4 @@
-import { trocarNoLocalStorage } from "../localStorage.js"
+import { trocarNoLocalStorage } from "./localStorage.js"
 
 export function porImagemNaTela(input, img, nome) {
   return new Promise((resolve, reject) => {

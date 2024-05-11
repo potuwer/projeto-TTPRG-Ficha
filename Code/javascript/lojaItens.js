@@ -1,7 +1,4 @@
-import {
-  desativarFecharOnFocusOut,
-  fecharOnFocusOut,
-} from "./utils/focusOut.js";
+import { desativarFecharOnFocusOut, fecharOnFocusOut } from "./utils/focusOut.js";
 import { deletarDiv } from "./utils/botaoX.js";
 import { carregarDados, carregarInventario, criarPopUp } from "./inventario.js";
 import { Item, ListaItens } from "./types/Item.js";

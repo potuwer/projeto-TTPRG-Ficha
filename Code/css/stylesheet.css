@@ -68,6 +68,8 @@ body::-webkit-scrollbar {
   display: none;
 }
 .container-foto-de-perfil img {
+  z-index: 1;
+  pointer-events: none;
   width: 115%;
   height: 121%;
   -o-object-fit: cover;
@@ -79,14 +81,16 @@ body::-webkit-scrollbar {
 }
 
 .foto-de-perfil {
-  background-color: transparent;
-  height: 97%;
-  width: 90%;
+  background-image: url("../assets/Icons/icon-upload-profile.jpg");
+  background-size: contain;
+  width: 115%;
+  height: 121%;
+  -webkit-clip-path: polygon(22% 9%, 78% 9%, 85% 14%, 94% 14%, 93% 88%, 89% 90%, 85% 94%, 15% 94%, 12% 91%, 8% 87%, 7% 13%, 14% 13%);
+          clip-path: polygon(22% 9%, 78% 9%, 85% 14%, 94% 14%, 93% 88%, 89% 90%, 85% 94%, 15% 94%, 12% 91%, 8% 87%, 7% 13%, 14% 13%);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 1;
   position: absolute;
 }
 
@@ -371,13 +375,16 @@ body::-webkit-scrollbar {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 1;
   cursor: pointer;
+  background-image: url("../assets/Icons/icon-upload-body.png");
+  background-size: cover;
 }
 .container-foto-corpo > label > input {
   display: none;
 }
 .container-foto-corpo img {
+  pointer-events: none;
+  z-index: 1;
   width: auto;
   height: 100%;
   aspect-ratio: 7/12;

@@ -2,6 +2,7 @@ import { Habilidade, ListaHabilidades } from "./types/Habilidade.js";
 import { porImagemNaTela } from "./utils/porImagemNaTela.js";
 import { deletarDiv } from "./utils/botaoX.js";
 import { bordaSumir } from "./utils/bordaSumir.js";
+import { trocarNoLocalStorage } from "./utils/localStorage.js";
 
 const body = document.querySelector("body");
 const containerHabilidade = document.querySelector(".container-habilidades");
@@ -104,6 +105,8 @@ botaoAddHabilidade.addEventListener("click", () => {
       valorDescricao
     );
 
+    trocarNoLocalStorage("lista-habilidades", ListaHabilidades)
+
     popUp.remove();
     botaoAddHabilidade.disabled = false;
     botaoAddHabilidade.style.cursor = "pointer";
@@ -149,7 +152,6 @@ function atualizarHabilidades() {
     abrirHabilidade();
   });
 }
-atualizarHabilidades();
 
 //Cria pop up da habilidade quando clica no card dela
 function abrirHabilidade() {
@@ -244,6 +246,8 @@ function removerLista(btn, nome, popUp) {
     if (resposta) {
       const indice = ListaHabilidades.findIndex((habi) => habi.nome === nome);
       indice !== -1 ? ListaHabilidades.splice(indice, 1) : undefined;
+
+      trocarNoLocalStorage("lista-habilidades", ListaHabilidades)
       atualizarHabilidades();
       popUp.remove();
     }
@@ -313,3 +317,9 @@ function atualizarItemNaArray(btnOk, habi, imagem, popUp) {
     popUp.remove();
   });
 }
+
+const ListaHabilidadeLS = trocarNoLocalStorage("lista-habilidades")
+if (ListaHabilidadeLS) ListaHabilidadeLS.forEach(habi => ListaHabilidades.push(habi))
+
+
+atualizarHabilidades()

@@ -1,6 +1,7 @@
 import { fecharOnFocusOut } from "./utils/focusOut.js";
 import { deletarDiv } from "./utils/botaoX.js";
 import { trocarInventario } from "./armadura.js";
+import { trocarNoLocalStorage } from "./utils/localStorage.js"
 
 const containerItensDOM = document.querySelectorAll(".item");
 const containerInventario = document.querySelector(".inventario");
@@ -51,6 +52,9 @@ export async function carregarInventario() {
     const itemObj = dados.find((dado) => dado.id == item.id);
     itemObj ? criarItemNoInventario(itemObj, true) : undefined;
   });
+
+  trocarNoLocalStorage("lista-itens", ListaItens)
+  trocarNoLocalStorage("lista-armadura", ListaArmadura)
 }
 
 // Procura um espaço no inventário vazio, cria o html do item baseado no item da API e no LS, e coloca-o no espaço vazio
@@ -183,4 +187,18 @@ function removerItem(popUp, itemLS) {
   });
 }
 
+
+//Pondo Listas do LS nas listas oficiais
+const ListaItensLS = trocarNoLocalStorage("lista-itens")
+if (ListaItensLS) ListaItensLS.forEach((itemLS) => ListaItens.push(itemLS))
+const ListaArmaduraLS = trocarNoLocalStorage("lista-armadura")
+if (ListaArmaduraLS) ListaArmaduraLS.forEach((itemArmLS) => ListaArmadura.push(itemArmLS))
+
+
 carregarInventario();
+
+// Guardar peso mochila no LS
+const mochila = document.querySelector(".capacidade input")
+mochila.value = trocarNoLocalStorage("peso-mochila")
+mochila.addEventListener("change", () => trocarNoLocalStorage("peso-mochila", mochila.value))
+

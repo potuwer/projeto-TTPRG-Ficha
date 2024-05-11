@@ -2,6 +2,7 @@ import { ListaItens, ListaArmadura, Item } from "./types/Item.js"
 import { carregarInventario, verificadorInvOuArm } from "./inventario.js"
 
 export function trocarInventario(popUp) {
+  if (!popUp) return
     popUp.querySelector(".mudar").addEventListener("click", () => {
         if (verificadorInvOuArm) {
             // Verificar se o inventário está cheio

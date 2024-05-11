@@ -1,3 +1,5 @@
+import { trocarNoLocalStorage } from "./utils/localStorage.js"
+
 const botaoDescricao = document.querySelector(".container-descricao button");
 const descricao = document.querySelector(".texto");
 const notas = document.querySelector(".notas");
@@ -17,3 +19,15 @@ botaoDescricao.addEventListener("click", () => {
     toogle = true;
   }
 });
+
+// Salvar no LS Descrição
+descricao.innerHTML = trocarNoLocalStorage("descricao");
+descricao.addEventListener("focusout", () =>
+  trocarNoLocalStorage("descricao", descricao.innerHTML)
+);
+
+// Salvar no LS Notas
+notas.innerHTML = trocarNoLocalStorage("notas");
+notas.addEventListener("focusout", () =>
+  trocarNoLocalStorage("notas", notas.innerHTML)
+);
