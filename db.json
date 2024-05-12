@@ -31,14 +31,6 @@
       "peso": "5",
       "qnt": "1",
       "desc": "A capa do batman."
-    },
-    {
-      "id": "item-4",
-      "nome": "Samantha Psicóloga",
-      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFl9IoeTpRGnGnwViUuGTQEPV_TheiUz2YexMwGNLS6A&s",
-      "peso": "56",
-      "qnt": "1",
-      "desc": "A samantha: mãe, presidente do MonteCatine e psicóloga."
     }
   ]
 }
