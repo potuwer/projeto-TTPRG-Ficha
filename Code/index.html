@@ -501,7 +501,12 @@
           console.log(novoTitulo)
 
           const titulo = document.querySelector("title")
-          titulo.textContent = novoTitulo
+          if (novoTitulo == "") {
+            titulo.textContent = "Ficha RPG"
+          } else {
+            titulo.textContent = novoTitulo
+          }
+          
         })
       }
 
