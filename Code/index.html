@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ficha</title>
+    <title>Ficha RPG</title>
+    <link rel="icon" href="./assets/Icons/favicon.png" type="image/svg+xml">
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/nav-bar.css" />
     <link rel="stylesheet" href="./css/stylesheet.css" />
@@ -487,6 +488,24 @@
       }
       
       document.cookie = "visitou=true";
+
+
+
+      //Trocar nome da pagina para nome do perso
+
+      function mudarTitulo() {
+        const textareaNome = document.querySelector(".nome-do-perso")
+
+        textareaNome.addEventListener("blur", () => {
+          const novoTitulo = textareaNome.value;
+          console.log(novoTitulo)
+
+          const titulo = document.querySelector("title")
+          titulo.textContent = novoTitulo
+        })
+      }
+
+      mudarTitulo()
     </script>
   </body>
 </html>
