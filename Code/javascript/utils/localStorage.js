@@ -10,7 +10,12 @@ export function trocarNoLocalStorage(objetoNome, objeto) {
 
 // Nome Personagem
 const nomePerso = document.querySelector(".nome-do-perso");
-nomePerso.innerHTML = trocarNoLocalStorage("nome-perso");
+const valorNome =  trocarNoLocalStorage("nome-perso");
+const titulo = document.querySelector("title");
+if (valorNome != null) {
+  nomePerso.innerHTML = valorNome;
+  titulo.innerHTML = valorNome;
+}
 nomePerso.addEventListener("change", () =>
   trocarNoLocalStorage("nome-perso", nomePerso.value)
 );
