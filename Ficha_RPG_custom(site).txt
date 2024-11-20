@@ -1,0 +1,17 @@
+seria um site onde vc pode criar uma conta e criar fichas de RPG customizáveis e interativas.
+-Voce criaria uma conta onde amazenaria suas fichas que voce criou(como mestre) e fichas que voce adquiriu(jogador)
+-os mestres criariam suas fichas e teria um link para divulgar para os jogadores, ao receberem o link eles adquiriam o acesso a fica e poderiam fazer seus personagens nela.
+-os mestres teriam controle das posições dos itens da ficha, cores, imagens , e das funções da ficha, exemplo: Colocar barras esgotaveis(vida; mana; sanidade; etc); colocar atributos; colocar inventário; poderes; imagens(itens, personagens e habilidades); etc
+-eles teriam acesso a customzar cores, posições e quantidade de funções
+-os jogadores teriam livre acesso para fazer o que quiserem, mas o mestre teria a cesso a ficha dos personagens para olhar e alterar elas quando quisesse.
+-o mestre teria um histórico mostrando o que foi alterado nas suas fichas e a de todos
+-o jogadores teriam acesso a um histyorico do que foi alterado nas suas fichas
+-o mestre pode ligar ou desligar uma fnção que desativa a visao dos jogadores sobre suas ações(ações do mestre) na ficha dos players.
+-Quado o mestre ativar um função chamada combate, todos os jogadores que estão na sessão online, agora entram no modo combate, que mostra em algum lugar da tela(topo?) uma roda que passa por todos os players (npc's tb) acendendo uma luzinha e dado um alerta na tela da pessoa que for a vez. O mestre controla com um botão quando entrar em combate, e o dono do personagem controla quando ele passa a sua vez.
+-Ao ativar a função entrar em combate o mestre pode escolher quais times vao batlhar contra o outro e a ordem das vezes.(os times devem ser feitos antes do jogo começar)
+
+
+
++-ser posivel montar um time na hora usando personagens que ja existem, duplicar fichas e altera-las no meio do jogo, para criar bataha nao esperadas
+
++-talvez, fazer com que seja possivel publicar fichas(ideia para por site no ar)

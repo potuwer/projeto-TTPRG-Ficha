@@ -5,14 +5,14 @@
   background-color: rgba(61, 61, 61, 0.5);
   -o-object-fit: cover;
      object-fit: cover;
-  height: 20px;
+  height: 1.52vw;
   aspect-ratio: 1/1;
   position: absolute;
-  top: 5px;
-  right: 5px;
-  border: 0.075vw solid rgba(0, 0, 0, 0.7);
+  top: 0.38vw;
+  right: 0.38vw;
+  border: 0.08vw solid rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  padding: 1.5px;
+  padding: 0.11vw;
 }
 .X img {
   width: 100%;
@@ -27,19 +27,19 @@
   justify-content: center;
   flex-direction: row;
   position: absolute;
-  width: 140px;
-  height: 25px;
+  width: 10.61vw;
+  height: 1.9vw;
   background-color: rgba(236, 44, 44, 0.5);
-  border: 3px solid rgba(61, 2, 2, 0.7);
-  padding: 1px;
+  border: 0.23vw solid rgba(61, 2, 2, 0.7);
+  padding: 0.08vw;
   cursor: pointer;
 }
 .remover p {
-  text-indent: 5px;
+  text-indent: 0.38vw;
   margin: 0;
   color: #fff;
   font-family: "Source Serif 4";
-  font-size: 20px;
+  font-size: 1.52vw;
   font-weight: 700;
 }
 .remover img {
@@ -53,19 +53,19 @@
   justify-content: center;
   flex-direction: row;
   position: absolute;
-  width: 70px;
-  height: 25px;
+  width: 5.31vw;
+  height: 1.9vw;
   background-color: rgba(19, 211, 211, 0.5);
-  border: 3px solid rgba(194, 253, 253, 0.7);
-  padding: 1px;
+  border: 0.23vw solid rgba(194, 253, 253, 0.7);
+  padding: 0.08vw;
   cursor: pointer;
 }
 .ok p {
-  text-indent: 5px;
+  text-indent: 0.38vw;
   margin: 0;
   color: #fff;
   font-family: "Source Serif 4";
-  font-size: 20px;
+  font-size: 1.52vw;
   font-weight: 700;
 }
 .ok img {
@@ -79,19 +79,19 @@
   justify-content: center;
   flex-direction: row;
   position: absolute;
-  width: 121px;
-  height: 25px;
+  width: 9.17vw;
+  height: 1.9vw;
   background-color: rgba(94, 236, 44, 0.5);
-  border: 3px solid rgba(2, 61, 11, 0.7);
-  padding: 1px;
+  border: 0.23vw solid rgba(2, 61, 11, 0.7);
+  padding: 0.08vw;
   cursor: pointer;
 }
 .mudar p {
-  text-indent: 5px;
+  text-indent: 0.38vw;
   margin: 0;
   color: #fff;
   font-family: "Source Serif 4";
-  font-size: 20px;
+  font-size: 1.52vw;
   font-weight: 700;
 }
 .mudar img {
@@ -102,22 +102,22 @@
 /* POP UP BARRA*/
 .pop-up-barra {
   background-color: #d9d9d9;
-  border: 5px solid black;
-  width: 238px;
+  border: 0.38vw solid black;
+  width: 18.04vw;
   height: auto;
-  padding: 20px;
+  padding: 1.52vw;
   position: absolute;
   z-index: 100;
-  top: -100px;
-  left: 10px;
+  top: -7.58vw;
+  left: 0.76vw;
 }
 .pop-up-barra hr {
   width: auto;
-  height: 3px;
+  height: 0.23vw;
   background-color: #000;
   box-shadow: none;
   border: none;
-  margin-block: 10px;
+  margin-block: 0.76vw;
 }
 .pop-up-barra button {
   cursor: pointer;
@@ -126,8 +126,8 @@
   list-style: none;
   flex-grow: 1;
   display: block;
-  padding: 0px;
-  margin: 0px;
+  padding: 0vw;
+  margin: 0vw;
 }
 .pop-up-barra ul li {
   display: flex;
@@ -136,8 +136,8 @@
   flex-direction: row;
 }
 .pop-up-barra ul li input {
-  width: 50px;
-  height: 20px;
+  width: 3.79vw;
+  height: 1.52vw;
 }
 .pop-up-barra ul li input::-webkit-inner-spin-button,
 .pop-up-barra ul li input::-webkit-outer-spin-button {
@@ -147,9 +147,9 @@
   color: #000;
   text-align: center;
   font-family: "Merriweather Sans";
-  font-size: 20px;
+  font-size: 1.52vw;
   font-weight: 1000;
-  margin: 0px;
+  margin: 0vw;
 }
 
 /* POP UP INFO HABILIDADE */
@@ -164,11 +164,11 @@
 .fundo-verde .info-habilidade {
   background-image: url(../assets/PopUpHabilidade-fundo.png);
   background-size: cover;
-  border-radius: 50px;
-  border: 6px solid #6bda37;
+  border-radius: 3.79vw;
+  border: 0.45vw solid #6bda37;
   box-sizing: border-box;
   width: 66vw;
-  height: 517px;
+  height: 39.2vw;
   display: flex;
   flex-direction: row;
 }
@@ -178,7 +178,7 @@
   justify-content: space-around;
   flex-direction: column;
   width: 40%;
-  padding: 50px;
+  padding: 3.79vw;
   box-sizing: border-box;
 }
 .fundo-verde .info-habilidade .principal .container-foto-habilidade {
@@ -186,15 +186,15 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 260px;
-  height: 260px;
+  width: 19.71vw;
+  height: 19.71vw;
 }
 .fundo-verde .info-habilidade .principal img {
   width: 100%;
   height: 100%;
   flex-shrink: 0;
-  border-radius: 10px;
-  border: 8px solid #2f1e04;
+  border-radius: 0.76vw;
+  border: 0.61vw solid #2f1e04;
   z-index: 0;
 }
 .fundo-verde .info-habilidade .principal label {
@@ -203,7 +203,7 @@
   height: 100%;
   z-index: 1;
   cursor: pointer;
-  box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.6) inset;
+  box-shadow: 0vw 0vw 1.52vw 0.45vw rgba(0, 0, 0, 0.6) inset;
 }
 .fundo-verde .info-habilidade .principal label input {
   opacity: 0;
@@ -223,7 +223,7 @@
 .fundo-verde .info-habilidade .principal ul li {
   color: #2f1e04;
   font-family: Inter;
-  font-size: 25px;
+  font-size: 1.9vw;
   font-weight: 900;
   display: inline-flex;
   justify-content: space-between;
@@ -231,29 +231,29 @@
   flex-wrap: nowrap;
 }
 .fundo-verde .info-habilidade .principal ul li:first-child {
-  margin-top: 30px;
+  margin-top: 2.27vw;
 }
 .fundo-verde .info-habilidade .principal ul li input {
   width: 100%;
-  margin-left: 10px;
+  margin-left: 0.76vw;
   border: none;
   background: transparent;
   color: #2f1e04;
   font-family: Inter;
-  font-size: 20px;
+  font-size: 1.52vw;
   font-weight: 400;
 }
 .fundo-verde .info-habilidade .principal ul li textarea {
   resize: none;
-  width: 120px;
+  width: 9.1vw;
   height: 60%;
-  margin-left: 10px;
+  margin-left: 0.76vw;
   box-sizing: border-box;
-  border: 1px dashed #281a04;
+  border: 0.08vw dashed #281a04;
   background: transparent;
   color: #2f1e04;
   font-family: Inter;
-  font-size: 20px;
+  font-size: 1.52vw;
   font-weight: 400;
 }
 .fundo-verde .info-habilidade .propriedades {
@@ -262,37 +262,37 @@
   justify-content: center;
   flex-direction: column;
   width: 60%;
-  padding: 30px;
+  padding: 2.27vw;
 }
 .fundo-verde .info-habilidade .propriedades .habilidade-nome {
   color: #281a04;
   text-align: center;
   font-family: "Metal Mania";
-  font-size: 60px !important;
+  font-size: 4.55vw !important;
   font-weight: 400;
-  height: 30px;
+  height: 2.27vw;
   width: 100%;
   padding: 0%;
   box-sizing: border-box;
-  border: 1px dashed #281a04;
+  border: 0.08vw dashed #281a04;
 }
 .fundo-verde .info-habilidade .propriedades .habilidade-nome::-webkit-scrollbar {
-  width: 0px;
+  width: 0vw;
 }
 .fundo-verde .info-habilidade .propriedades hr {
   width: 90%;
-  height: 3px;
-  margin-block: 30px;
+  height: 0.23vw;
+  margin-block: 2.27vw;
   background-color: #2f1e04;
   border: none;
   display: block;
 }
 .fundo-verde .info-habilidade .propriedades p {
-  margin: 0px;
+  margin: 0vw;
   align-self: flex-start;
   color: #2f1e04;
   font-family: Inter;
-  font-size: 15px;
+  font-size: 1.14vw;
   font-weight: 900;
   display: block;
 }
@@ -302,24 +302,24 @@
   flex-grow: 1;
   width: 100%;
   box-sizing: border-box;
-  border: 1px dashed #281a04;
+  border: 0.08vw dashed #281a04;
   color: #2f1e04;
   font-family: Inter;
-  font-size: 20px;
+  font-size: 1.52vw;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
 .popUpItem {
-  width: 850px;
-  height: 420px;
-  border-radius: 10px;
+  width: 64.44vw;
+  height: 31.84vw;
+  border-radius: 0.76vw;
   background-image: url("../assets/item-fundo.jpg");
-  padding: 60px;
+  padding: 4.55vw;
   display: flex;
   justify-content: space-between;
-  border: 5px solid black;
+  border: 0.38vw solid black;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -333,7 +333,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-left: 30px;
+  padding-left: 2.27vw;
 }
 .popUpItem .container1 li {
   width: 100%;
@@ -352,13 +352,13 @@
   width: 100%;
   height: 120%;
   cursor: pointer;
-  border-radius: 30px;
-  border: 6px solid #000;
+  border-radius: 2.27vw;
+  border: 0.45vw solid #000;
   box-sizing: border-box;
-  box-shadow: 0px 0px 14px 13px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 0vw 0vw 1.06vw 0.99vw rgba(0, 0, 0, 0.4) inset;
 }
 .popUpItem .container1 li div img {
-  border-radius: 30px;
+  border-radius: 2.27vw;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -368,18 +368,18 @@
   display: flex;
   color: #7c7c7c;
   font-family: Inter;
-  font-size: 25px;
+  font-size: 1.9vw;
   font-weight: 900;
   height: 40%;
-  padding-left: 8px;
+  padding-left: 0.61vw;
 }
 .popUpItem .container1 li span p {
-  margin-left: 5px;
+  margin-left: 0.38vw;
   width: auto;
   height: 100%;
   color: #a5a5a5;
   font-family: Inter;
-  font-size: 25px;
+  font-size: 1.9vw;
   font-weight: 900;
 }
 
@@ -398,7 +398,7 @@
 .container2 span {
   color: #7c7c7c;
   font-family: Inter;
-  font-size: 25px;
+  font-size: 1.9vw;
   font-weight: 900;
   height: 30%;
 }
@@ -407,38 +407,38 @@
   background: transparent;
   text-align: center;
   font-family: "Irish Grover";
-  font-size: 95px;
+  font-size: 7.2vw;
   font-weight: 400;
-  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+  text-shadow: -0.08vw -0.08vw 0 #fff, 0.08vw -0.08vw 0 #fff, -0.08vw 0.08vw 0 #fff, 0.08vw 0.08vw 0 #fff;
 }
 .container2 #desc {
   height: auto;
   background: transparent;
   color: #a5a5a5;
   font-family: Inter;
-  font-size: 25px;
+  font-size: 1.9vw;
   font-weight: 500;
 }
 
 .loja {
-  height: 700px;
-  width: 1200px;
+  height: 53.07vw;
+  width: 90vw;
   box-sizing: border-box;
   background-image: url("../assets/loja-fundo.png");
-  border-radius: 10px;
+  border-radius: 0.75vw;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   z-index: 100;
-  padding: 40px;
+  padding: 3vw;
 }
 .loja .X-loja {
-  width: 35px;
-  height: 35px;
-  top: 2px;
-  right: 2px;
-  border: 4px solid rgba(0, 0, 0, 0.7);
-  border-radius: 0px 10px 0px 0px;
+  width: 2.65vw;
+  height: 2.65vw;
+  top: 0.15vw;
+  right: 0.15vw;
+  border: 0.3vw solid rgba(0, 0, 0, 0.7);
+  border-radius: 0vw 0.76vw 0vw 0vw;
 }
 .loja .cabecalho-loja {
   width: 100%;
@@ -446,24 +446,24 @@
   display: flex;
 }
 .loja .cabecalho-loja p {
-  margin-left: 20px;
+  margin-left: 1.52vw;
   color: #fff;
   font-family: "Bacasime Antique";
-  font-size: 70px;
+  font-size: 5.31vw;
 }
 .loja .cabecalho-loja .carrinho {
   box-sizing: border-box;
-  padding: 10px 0px 20px 0px;
+  padding: 0.76vw 0vw 1.52vw 0vw;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: right;
-  -moz-column-gap: 15px;
-       column-gap: 15px;
+  -moz-column-gap: 1.14vw;
+       column-gap: 1.14vw;
 }
 .loja .cabecalho-loja .carrinho .item-loja:hover {
-  border: 8px solid rgb(132, 0, 0);
+  border: 0.61vw solid rgb(132, 0, 0);
   cursor: pointer;
 }
 .loja .cabecalho-loja .carrinho .item-loja:hover::before {
@@ -483,54 +483,54 @@
   left: 50%; /* Alinha horizontalmente ao centro */
   transform: translate(-50%, -50%); /* Centraliza o conteúdo */
   color: white; /* Cor do texto */
-  font-size: 24px; /* Tamanho do texto */
+  font-size: 1.82vw; /* Tamanho do texto */
   z-index: 2; /* Coloca o pseudo-elemento sobre a camada de fundo */
 }
 .loja hr {
   width: auto;
-  height: 15px;
+  height: 1.14vw;
   background-color: rgba(96, 96, 96, 0.8);
 }
 .loja .mostruario-loja {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: auto;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
-  row-gap: 20px;
+  -moz-column-gap: 0.76vw;
+       column-gap: 0.76vw;
+  row-gap: 1.52vw;
   justify-content: center;
   width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 3.79vw;
   overflow-y: scroll;
 }
 .loja .mostruario-loja::-webkit-scrollbar {
-  width: 0px;
+  width: 0vw;
 }
 .loja .add {
   position: absolute;
   z-index: 1;
-  right: 25px;
-  bottom: 20px;
-  width: 200px;
-  height: 90px;
-  border: 4px solid black;
-  box-shadow: 0px 0px 8.3px 7px rgba(0, 0, 0, 0.4) inset;
+  right: 1.9vw;
+  bottom: 1.52vw;
+  width: 15.16vw;
+  height: 6.82vw;
+  border: 0.3vw solid black;
+  box-shadow: 0vw 0vw 0.63vw 0.53vw rgba(0, 0, 0, 0.4) inset;
   background-color: #dca200;
   border-radius: 50%;
   cursor: pointer;
   color: #000;
   font-family: "Inknut Antiqua";
-  font-size: 23px;
+  font-size: 1.74vw;
   font-weight: 900;
 }
 
 .item-loja {
   grid-column-start: span 1;
   grid-row-start: span 1;
-  width: 75px;
-  height: 75px;
-  border: 8px solid black;
+  width: 5.69vw;
+  height: 5.69vw;
+  border: 0.61vw solid black;
   box-sizing: border-box;
   position: relative;
 }
@@ -548,8 +548,8 @@
   top: 0;
   right: 0;
   z-index: 1;
-  border: 1px solid black;
-  width: 17px;
-  height: 17px;
+  border: 0.08vw solid black;
+  width: 1.29vw;
+  height: 1.29vw;
   background-color: transparent;
 }/*# sourceMappingURL=popUps.css.map */
